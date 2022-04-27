@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32228.343
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Chapter02", "Chapter02", "{A5552592-DCBE-4E02-84BB-964337C46E8E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistanceConverter", "Chapter02\DistanceConverter\DistanceConverter.csproj", "{57555BA1-3C99-4572-80D2-BB5AA681ACF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesCalculator", "Chapter02\SalesCalculator\SalesCalculator.csproj", "{0CC4A04E-56B5-4FD9-B7DD-2CF083F241AF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{57555BA1-3C99-4572-80D2-BB5AA681ACF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57555BA1-3C99-4572-80D2-BB5AA681ACF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57555BA1-3C99-4572-80D2-BB5AA681ACF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57555BA1-3C99-4572-80D2-BB5AA681ACF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CC4A04E-56B5-4FD9-B7DD-2CF083F241AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CC4A04E-56B5-4FD9-B7DD-2CF083F241AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CC4A04E-56B5-4FD9-B7DD-2CF083F241AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CC4A04E-56B5-4FD9-B7DD-2CF083F241AF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{57555BA1-3C99-4572-80D2-BB5AA681ACF0} = {A5552592-DCBE-4E02-84BB-964337C46E8E}
+		{0CC4A04E-56B5-4FD9-B7DD-2CF083F241AF} = {A5552592-DCBE-4E02-84BB-964337C46E8E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {29FF4074-9FEE-4561-8D09-6272B47A4E37}
+	EndGlobalSection
+EndGlobal
