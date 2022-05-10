@@ -15,5 +15,12 @@ namespace Exercise {
 
         //演奏時間
         public int Length { get; set; }
+
+        //コンストラクタ
+        public Song(string title, string artistName, int length) {
+            Title = title;
+            ArtistName = artistName;
+            Length = length;
+        }
     }
 }
