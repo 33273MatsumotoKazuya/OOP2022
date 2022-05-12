@@ -15,21 +15,23 @@ namespace Exercise03 {
                 Console.WriteLine("1.店舗別");
                 Console.WriteLine("2.商品カテゴリー別");
                 Console.Write(">");
-
                 judge = int.Parse(Console.ReadLine());
-                IDictionary<String, int> amountPerStore = null;
+
                 if (judge == 1) {
-                    amountPerStore = sales.GetPerStoreSales();
+                    outPut(sales.GetPerStoreSales());
                 }
                 else if (judge == 2) {
-                    amountPerStore = sales.GetPerProductSales();
+                    outPut(sales.GetPerProductSales());
                 }
                 else if (judge == 999) {
                     break;
                 }
-                foreach (var obj in amountPerStore) {
-                    Console.WriteLine("{0}{1}", obj.Key, obj.Value);
-                }
+            }
+        }
+
+        private static void outPut(IDictionary<string, int> amountPerStore) {
+            foreach (var obj in amountPerStore) {
+                Console.WriteLine("{0}{1}", obj.Key, obj.Value);
             }
         }
     }
