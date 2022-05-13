@@ -10,8 +10,10 @@ namespace Exercise01 {
             var numbers = new List<int> { 12, 87, 94, 14, 53, 20, 40, 35, 76, 91, 31, 17, 48 };
 
             Execise1_1(numbers);
+            Console.WriteLine("----------------");
 
             Execise1_2(numbers);
+            Console.WriteLine("----------------");
         }
 
         private static void Execise1_1(List<int> numbers) {
