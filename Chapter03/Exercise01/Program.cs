@@ -17,11 +17,17 @@ namespace Exercise01 {
         }
 
         private static void Execise1_1(List<int> numbers) {
-            Console.WriteLine(numbers.Exists(s => s % 8 == 0 || s % 9 == 0));
+            var exists = numbers.Exists(n => n % 8 == 0 || n % 9 == 0);
+            if (exists) {
+                Console.WriteLine("存在しています");
+            }
+            else {
+                Console.WriteLine("存在していません");
+            }
         }
 
         private static void Execise1_2(List<int> numbers) {
-            numbers.ForEach(s => Console.WriteLine(s / 2.0));
+            numbers.ForEach(n => Console.WriteLine(n / 2.0));
         }
     }
 }
