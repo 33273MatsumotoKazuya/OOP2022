@@ -36,15 +36,14 @@ namespace Exercise01 {
         }
 
         private static void Execise1_3(List<int> numbers) {
-            var query = numbers.Where(n => n >= 50);
-            foreach (var n in query) {
+            foreach (var n in numbers.Where(n => n >= 50)) {
                 Console.WriteLine(n);
             }
         }
 
         private static void Execise1_4(List<int> numbers) {
-            var query = numbers.Select(n => n * 2);
-            foreach (var n in query) {
+            List<int> list = numbers.Select(n => n * 2).ToList();
+            foreach (var n in list) {
                 Console.WriteLine(n);
             }
         }
