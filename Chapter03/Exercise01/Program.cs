@@ -43,7 +43,7 @@ namespace Exercise01 {
 
         private static void Execise1_4(List<int> numbers) {
             List<int> list = numbers.Select(n => n * 2).ToList();
-            foreach (var n in list) {
+            foreach (var n in list) {   //遅延実行 ToListで即時実行
                 Console.WriteLine(n);
             }
         }
