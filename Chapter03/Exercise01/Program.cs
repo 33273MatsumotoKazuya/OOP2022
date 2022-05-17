@@ -14,8 +14,13 @@ namespace Exercise01 {
 
             Execise1_2(numbers);
             Console.WriteLine("----------------");
-        }
 
+            Execise1_3(numbers);
+            Console.WriteLine("----------------");
+
+            Execise1_4(numbers);
+        }
+        
         private static void Execise1_1(List<int> numbers) {
             var exists = numbers.Exists(n => n % 8 == 0 || n % 9 == 0);
             if (exists) {
@@ -28,6 +33,20 @@ namespace Exercise01 {
 
         private static void Execise1_2(List<int> numbers) {
             numbers.ForEach(n => Console.WriteLine(n / 2.0));
+        }
+
+        private static void Execise1_3(List<int> numbers) {
+            var query = numbers.Where(n => n >= 50);
+            foreach (var n in query) {
+                Console.WriteLine(n);
+            }
+        }
+
+        private static void Execise1_4(List<int> numbers) {
+            var query = numbers.Select(n => n * 2);
+            foreach (var n in query) {
+                Console.WriteLine(n);
+            }
         }
     }
 }
