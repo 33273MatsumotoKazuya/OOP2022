@@ -41,14 +41,18 @@ namespace Exercise02 {
         }
 
         private static void Execise2_3(List<string> names) {
-            foreach (var s in names.Where(s => s.Contains("o")).ToList()) {
-                Console.WriteLine(s);
+            var selected = names.Where(s => s.Contains("o")).ToArray();
+
+            foreach (var name in selected) {
+                Console.WriteLine(name);
             }
         }
 
         private static void Execise2_4(List<string> names) {
-            foreach (var s in names.Where(s => s.StartsWith("B")).Select(s => s.Length)) {
-                Console.WriteLine(s);
+            var selected = names.Where(s => s.StartsWith("B")).Select(s => s.Length);
+
+            foreach (var name in selected) {
+                Console.WriteLine(name);
             }
         }
     }
