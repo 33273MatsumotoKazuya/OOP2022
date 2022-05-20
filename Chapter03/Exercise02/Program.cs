@@ -49,10 +49,10 @@ namespace Exercise02 {
         }
 
         private static void Execise2_4(List<string> names) {
-            var selected = names.Where(s => s.StartsWith("B")).Select(s => s.Length);
+            var selected = names.Where(s => s.StartsWith("B")).Select(s => new { s.Length, s });
 
             foreach (var name in selected) {
-                Console.WriteLine(name);
+                Console.WriteLine(name.Length + name.s);
             }
         }
     }
