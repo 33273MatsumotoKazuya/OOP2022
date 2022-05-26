@@ -11,7 +11,7 @@ namespace Exercise02 {
 
             //4.2.1
             var ymCollection = new YearMonth[] {
-                new YearMonth(2002, 11),
+                new YearMonth(2004, 11),
                 new YearMonth(2022, 5),
                 new YearMonth(1989, 7),
                 new YearMonth(1999, 12),
@@ -30,7 +30,16 @@ namespace Exercise02 {
             Exercise2_5(ymCollection);
             Console.WriteLine("-------------");
 
-            Exercise2_6(ymCollection);
+            Exercise2_6_1(ymCollection);
+            Console.WriteLine("-------------");
+
+            Exercise2_6_2(ymCollection);
+            Console.WriteLine("-------------");
+
+            Exercise2_6_3(ymCollection);
+            Console.WriteLine("-------------");
+
+            Exercise2_6_4(ymCollection);
         }
 
         //4.2.3
@@ -64,10 +73,27 @@ namespace Exercise02 {
             }
         }
 
-        private static void Exercise2_6(YearMonth[] ymCollection) {
-            foreach (var ym in ymCollection.OrderByDescending(ym => ym.Year)) {
+        private static void Exercise2_6_1(YearMonth[] ymCollection) {
+            foreach (var ym in ymCollection.OrderBy(ym => ym.Month)) {
                 Console.WriteLine(ym);
             }
+        }
+
+        private static void Exercise2_6_2(YearMonth[] ymCollection) {
+            foreach (var ym in ymCollection.Where(ym => ym.Year % 2 == 0).OrderBy(ym => ym.Month)) {
+                Console.WriteLine(ym);
+            }
+        }
+
+        private static void Exercise2_6_3(YearMonth[] ymCollection) {
+            foreach (var ym in ymCollection.Where(ym => DateTime.IsLeapYear(ym.Year) == true)){
+                Console.WriteLine(ym);
+            }
+        }
+
+        private static void Exercise2_6_4(YearMonth[] ymCollection) {
+            var date = ymCollection.Max(ym => ym.Month);
+            Console.WriteLine(date);
         }
     }
 }
