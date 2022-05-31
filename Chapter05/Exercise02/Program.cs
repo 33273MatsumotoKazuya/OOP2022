@@ -10,8 +10,8 @@ namespace Exercise02 {
 
             Console.Write("数字文字列：");
             var strNum = Console.ReadLine();
-            if (int.TryParse(strNum, out var result)) {
-                Console.WriteLine("{0:N0}", result);
+            if (int.TryParse(strNum, out var num)) {
+                Console.WriteLine("{0:#.#}", num);
             } else {
                 Console.WriteLine("不適な数字文字列です");
             }
