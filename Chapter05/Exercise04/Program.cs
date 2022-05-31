@@ -13,12 +13,9 @@ namespace Exercise04 {
         }
 
         private static void Exercise4(string text) {
-            var array = text.Split(';');
-            foreach (var word in array) {
-                var str1 = ToJapanese(word.Substring(0, word.IndexOf('=')));
-                var str2 = word.Substring(word.IndexOf("="));
-                var str3 = str2.Remove(0, 1);
-                Console.WriteLine(str1 + "：" + str3);
+            foreach (var item in text.Split(';')) {
+                var array = item.Split('=');
+                Console.WriteLine("{0}：{1}", ToJapanese(array[0]), array[1]);
             }
         }
 
