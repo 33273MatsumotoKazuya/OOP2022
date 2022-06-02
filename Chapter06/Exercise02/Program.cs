@@ -41,7 +41,7 @@ namespace Exercise02 {
         private static void Exercise2_1(List<Book> books) {
             var book = books.FirstOrDefault(b => b.Title == "ワンダフル・C#ライフ");
             if(book != null)
-            Console.WriteLine("{0} {1}", book.Price, book.Pages);
+                Console.WriteLine("{0} {1}", book.Price, book.Pages);
         }
 
         private static void Exercise2_2(List<Book> books) {
@@ -55,8 +55,9 @@ namespace Exercise02 {
         }
 
         private static void Exercise2_4(List<Book> books) {
-            var book = books.FirstOrDefault(b => b.Price >= 4000).Title;
-            Console.WriteLine(book);
+            var book = books.FirstOrDefault(b => b.Price >= 4000);
+            if (book != null)
+                Console.WriteLine(book.Title);
         }
 
         private static void Exercise2_5(List<Book> books) {
@@ -65,14 +66,14 @@ namespace Exercise02 {
         }
 
         private static void Exercise2_6(List<Book> books) {
-            var book = books.Where(b => b.Pages >= 400).OrderByDescending(b => b.Price).ToList();
+            var book = books.Where(b => b.Pages >= 400).OrderByDescending(b => b.Price);
             foreach (var b in book) {
                 Console.WriteLine("{0} {1}", b.Title, b.Price);
             }
         }
 
         private static void Exercise2_7(List<Book> books) {
-            var book = books.Where(b => b.Title.Contains("C#") && b.Pages <= 500).ToList();
+            var book = books.Where(b => b.Title.Contains("C#") && b.Pages <= 500);
             foreach (var b in book) {
                 Console.WriteLine(b.Title);
             }
