@@ -36,22 +36,21 @@ namespace Exercise01 {
         }
 
         private static void Exercise1_3(int[] numbers) {
-            foreach (var n in numbers) {
-                var str = n.ToString();
-                Console.WriteLine(str);
+            var strs = numbers.Select(n => n.ToString());
+            foreach (var s in strs) {
+                Console.WriteLine(s);
             }
         }
 
         private static void Exercise1_4(int[] numbers) {
-            var sorted = numbers.OrderBy(n => n).ToList();
-            for (int i = 0; i < 3; i++) {
-                Console.WriteLine(sorted[i]);
+            foreach (var n in numbers.OrderBy(n => n).Take(3)) {
+                Console.WriteLine(n);
             }
         }
 
         private static void Exercise1_5(int[] numbers) {
-            var removed = numbers.Distinct().Where(n => n > 10).Count();
-            Console.WriteLine(removed);
+            var number = numbers.Distinct().Count(n => n > 10);
+            Console.WriteLine(number);
         }
     }
 }
