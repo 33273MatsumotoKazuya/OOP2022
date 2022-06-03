@@ -83,10 +83,16 @@ namespace Exercise02 {
         }
 
         private static void Exercise2_8(List<Book> books) {
-            foreach (var book in books.Select((value, index) => new {value, index})) {
-                Console.WriteLine($"{book.index + 1}冊目：{book.value.Title}");
+            foreach (var book in books.Select((value, index) => new {value.Title, index})) {
+                Console.WriteLine($"{book.index + 1}冊目：{book.Title}");
             }
         }
+
+        //private static void Exercise2_8(List<Book> books) {
+        //    foreach (var book in books) {
+        //        Console.WriteLine($"{books.IndexOf(book) + 1}冊目：{book.Title}");
+        //    }
+        //}
     }
 
     class Book {
