@@ -36,6 +36,9 @@ namespace Exercise02 {
             Console.WriteLine("-----");
 
             Exercise2_7(books);
+            Console.WriteLine("-----");
+
+            Exercise2_8(books);
         }
 
         private static void Exercise2_1(List<Book> books) {
@@ -76,6 +79,12 @@ namespace Exercise02 {
             var book = books.Where(b => b.Title.Contains("C#") && b.Pages <= 500);
             foreach (var b in book) {
                 Console.WriteLine(b.Title);
+            }
+        }
+
+        private static void Exercise2_8(List<Book> books) {
+            foreach (var book in books.Select((value, index) => new {value, index})) {
+                Console.WriteLine($"{book.index + 1}冊目：{book.value.Title}");
             }
         }
     }
