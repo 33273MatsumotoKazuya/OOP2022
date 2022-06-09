@@ -10,20 +10,14 @@ using System.Windows.Forms;
 
 namespace Sample0607 {
     public partial class Form1 : Form {
+        Random rand = new Random();
+
         public Form1() {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e) {
-            if (nudNum2.Value != 0) {
-                nudAns.Value = nudNum1.Value / nudNum2.Value;
-                nudMod.Value = nudNum1.Value % nudNum2.Value;
-            } else {
-                MessageBox.Show("0で除算できません",
-                    "エラー",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Error);
-            }
+        private void btRandom_Click(object sender, EventArgs e) {
+            nudRandom.Value = rand.Next((int)nudMin.Value, (int)nudMax.Value + 1);
         }
     }
 }
