@@ -134,10 +134,13 @@ namespace AddressBook {
             // 
             this.dgvPersons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPersons.Location = new System.Drawing.Point(1, 321);
+            this.dgvPersons.MultiSelect = false;
             this.dgvPersons.Name = "dgvPersons";
             this.dgvPersons.RowTemplate.Height = 21;
+            this.dgvPersons.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPersons.Size = new System.Drawing.Size(821, 207);
             this.dgvPersons.TabIndex = 2;
+            this.dgvPersons.Click += new System.EventHandler(this.dgvPersons_Click);
             // 
             // cbFamily
             // 
