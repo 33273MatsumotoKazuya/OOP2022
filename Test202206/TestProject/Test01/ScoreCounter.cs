@@ -11,7 +11,7 @@ namespace Test01 {
         }
 
 
-        //メソッドの概要： 
+        //メソッドの概要： 生徒データを読み込み、Studentオブジェクトのリストを返す
         private static IEnumerable<Student> ReadScore(string filePath) {
             var students = new List<Student>();
             string[] lines = File.ReadAllLines(filePath);
@@ -27,7 +27,7 @@ namespace Test01 {
             return students;
         }
 
-        //メソッドの概要： 
+        //メソッドの概要：　科目別の得点合計を求める
         public IDictionary<string, int> GetPerStudentScore() {
             var dict = new Dictionary<string, int>();
             foreach (var score in _scores) {
