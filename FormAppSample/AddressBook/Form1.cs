@@ -45,6 +45,11 @@ namespace AddressBook {
 
         //更新ボタンが押された時の処理
         private void btUpdate_Click(object sender, EventArgs e) {
+            if (listPerson.Count() == 0) {
+                btDelete.Enabled = false;
+                pbPicture.Enabled = false;
+            }
+
             listPerson[dgvPersons.CurrentRow.Index].Name = tbName.Text;
             listPerson[dgvPersons.CurrentRow.Index].MailAddress = tbMailAddress.Text;
             listPerson[dgvPersons.CurrentRow.Index].Address = tbAddress.Text;
@@ -57,6 +62,11 @@ namespace AddressBook {
 
         //削除ボタンが押された時の処理
         private void btDelete_Click(object sender, EventArgs e) {
+            if (listPerson.Count() == 0) {
+                btDelete.Enabled = false;
+                pbPicture.Enabled = false;
+            }
+
             DialogResult result = MessageBox.Show("本当に削除してよいですか？",
                 "確認",
                 MessageBoxButtons.OKCancel,
@@ -66,6 +76,7 @@ namespace AddressBook {
                 dgvPersons.Rows.RemoveAt(dgvPersons.CurrentRow.Index);
                 dgvPersons.Refresh();
             }
+
             resetRow();
         }
 
@@ -134,5 +145,10 @@ namespace AddressBook {
         private void resetRow() {
             dgvPersons.Rows[0].Selected = true;
         }
+
+        private void Form1_Load(object sender, EventArgs e) {
+            
+              
+           }
     }
 }
