@@ -23,49 +23,59 @@ namespace AddressBook {
             if (ofbFileOpenDialog.ShowDialog() == DialogResult.OK) {
                 pbPicture.Image = Image.FromFile(ofbFileOpenDialog.FileName);
             }
+            btPictureClear.Enabled = true;
         }
 
         private void btPictureClear_Click(object sender, EventArgs e) {
             pbPicture.Image = null;
+            btPictureClear.Enabled = false;
         }
 
         private void btAddPerson_Click(object sender, EventArgs e) {
+
+            if(string.IsNullOrEmpty(tbName.Text)) {
+                MessageBox.Show("氏名が入力されていません");
+                return;
+            }
+
             Person newPerson = new Person {
                 Name = tbName.Text,
                 MailAddress = tbMailAddress.Text,
                 Address = tbAddress.Text,
-                Company = tbCompany.Text,
+                Company = cbCompany.Text,
                 Picture = pbPicture.Image,
                 listGroup = GetCheckBoxGroup(),
             };
 
             listPerson.Add(newPerson);
-            resetRow();
+            dgvPersons.Rows[dgvPersons.RowCount - 1].Selected = true;
+
+            if (listPerson.Count() > 0) {
+                btDelete.Enabled = true;
+                btUpdate.Enabled = true;
+            }
+
+            if (!cbCompany.Items.Contains(cbCompany.Text)) {
+                cbCompany.Items.Add(cbCompany.Text);
+            }
         }
 
         //更新ボタンが押された時の処理
         private void btUpdate_Click(object sender, EventArgs e) {
-            if (listPerson.Count() == 0) {
-                btDelete.Enabled = false;
-                pbPicture.Enabled = false;
-            }
 
             listPerson[dgvPersons.CurrentRow.Index].Name = tbName.Text;
             listPerson[dgvPersons.CurrentRow.Index].MailAddress = tbMailAddress.Text;
             listPerson[dgvPersons.CurrentRow.Index].Address = tbAddress.Text;
-            listPerson[dgvPersons.CurrentRow.Index].Company = tbCompany.Text;
+            listPerson[dgvPersons.CurrentRow.Index].Company = cbCompany.Text;
             listPerson[dgvPersons.CurrentRow.Index].listGroup = GetCheckBoxGroup();
             listPerson[dgvPersons.CurrentRow.Index].Picture = pbPicture.Image;
             dgvPersons.Refresh();   //データグリッドビュー更新
-            resetRow();
         }
+
+        
 
         //削除ボタンが押された時の処理
         private void btDelete_Click(object sender, EventArgs e) {
-            if (listPerson.Count() == 0) {
-                btDelete.Enabled = false;
-                pbPicture.Enabled = false;
-            }
 
             DialogResult result = MessageBox.Show("本当に削除してよいですか？",
                 "確認",
@@ -77,7 +87,7 @@ namespace AddressBook {
                 dgvPersons.Refresh();
             }
 
-            resetRow();
+            enabled();
         }
 
         //データグリッドビューをクリックしたときのイベントハンドラ
@@ -91,7 +101,7 @@ namespace AddressBook {
             tbName.Text = listPerson[indexRow].Name;
             tbMailAddress.Text = listPerson[indexRow].MailAddress;
             tbAddress.Text = listPerson[indexRow].Address;
-            tbCompany.Text = listPerson[indexRow].Company;
+            cbCompany.Text = listPerson[indexRow].Company;
             pbPicture.Image = listPerson[indexRow].Picture;
 
             allClear();
@@ -142,13 +152,12 @@ namespace AddressBook {
             cbOther.Checked = false;
         }
 
-        private void resetRow() {
-            dgvPersons.Rows[0].Selected = true;
+        private void enabled() {
+            if (listPerson.Count() == 0) {
+                btDelete.Enabled = false;
+                btUpdate.Enabled = false;
+                pbPicture.Enabled = false;
+            }
         }
-
-        private void Form1_Load(object sender, EventArgs e) {
-            
-              
-           }
     }
 }
