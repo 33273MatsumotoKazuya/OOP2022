@@ -107,7 +107,10 @@ namespace AddressBook {
             tbMailAddress.Text = listPerson[indexRow].MailAddress;
             tbAddress.Text = listPerson[indexRow].Address;
             cbCompany.Text = listPerson[indexRow].Company;
-            dateTimePicker.Value = listPerson[indexRow].Registration;
+
+            dateTimePicker.Value = 
+                listPerson[indexRow].Registration.Year > 1900 ? listPerson[indexRow].Registration : DateTime.Today;
+
             pbPicture.Image = listPerson[indexRow].Picture;
 
             allClear();
