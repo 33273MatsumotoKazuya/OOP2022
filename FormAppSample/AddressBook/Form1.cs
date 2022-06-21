@@ -52,6 +52,8 @@ namespace AddressBook {
                 Company = cbCompany.Text,
                 listGroup = GetCheckBoxGroup(),
                 Registration = dateTimePicker.Value,
+                KindNumber = GetKindNumber(),
+                TelNumber = tbTelNumber.Text,
                 Picture = pbPicture.Image,
             };
 
@@ -73,6 +75,7 @@ namespace AddressBook {
             listPerson[dgvPersons.CurrentRow.Index].Company = cbCompany.Text;
             listPerson[dgvPersons.CurrentRow.Index].listGroup = GetCheckBoxGroup();
             listPerson[dgvPersons.CurrentRow.Index].Registration = dateTimePicker.Value;
+            listPerson[dgvPersons.CurrentRow.Index].TelNumber = tbTelNumber.Text;
             listPerson[dgvPersons.CurrentRow.Index].Picture = pbPicture.Image;
             dgvPersons.Refresh();   //データグリッドビュー更新
         }
@@ -116,7 +119,6 @@ namespace AddressBook {
             allClear();
 
             foreach (var group in listPerson[indexRow].listGroup) {
-
                 switch (group) {
                     case Person.GroupType.家族:
                         cbFamily.Checked = true;
@@ -196,6 +198,14 @@ namespace AddressBook {
                 listGroup.Add(Person.GroupType.その他);
             }
             return listGroup;
+        }
+
+        private Person.KindNumberType GetKindNumber() {
+            if (rbHome.Checked) {
+                return Person.KindNumberType.自宅;
+            } else {
+                return Person.KindNumberType.携帯;
+            }
         }
 
         //チェックボックスの初期化

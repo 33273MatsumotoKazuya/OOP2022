@@ -50,8 +50,16 @@ namespace AddressBook {
             this.sfdSaveDialog = new System.Windows.Forms.SaveFileDialog();
             this.label6 = new System.Windows.Forms.Label();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
+            this.gbTelNumber = new System.Windows.Forms.GroupBox();
+            this.tbTelNumber = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.rbHome = new System.Windows.Forms.RadioButton();
+            this.rbMob = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPersons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).BeginInit();
+            this.gbTelNumber.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -133,13 +141,13 @@ namespace AddressBook {
             // 
             this.dgvPersons.AllowUserToAddRows = false;
             this.dgvPersons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPersons.Location = new System.Drawing.Point(63, 321);
+            this.dgvPersons.Location = new System.Drawing.Point(63, 368);
             this.dgvPersons.MultiSelect = false;
             this.dgvPersons.Name = "dgvPersons";
             this.dgvPersons.ReadOnly = true;
             this.dgvPersons.RowTemplate.Height = 21;
             this.dgvPersons.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPersons.Size = new System.Drawing.Size(768, 207);
+            this.dgvPersons.Size = new System.Drawing.Size(768, 160);
             this.dgvPersons.TabIndex = 2;
             this.dgvPersons.Click += new System.EventHandler(this.dgvPersons_Click);
             // 
@@ -305,11 +313,82 @@ namespace AddressBook {
             this.dateTimePicker.Size = new System.Drawing.Size(200, 19);
             this.dateTimePicker.TabIndex = 9;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("MS UI Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label7.Location = new System.Drawing.Point(48, 299);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(120, 27);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "電話番号";
+            // 
+            // gbTelNumber
+            // 
+            this.gbTelNumber.Controls.Add(this.tbTelNumber);
+            this.gbTelNumber.Controls.Add(this.label9);
+            this.gbTelNumber.Controls.Add(this.label8);
+            this.gbTelNumber.Controls.Add(this.rbHome);
+            this.gbTelNumber.Controls.Add(this.rbMob);
+            this.gbTelNumber.Location = new System.Drawing.Point(174, 288);
+            this.gbTelNumber.Name = "gbTelNumber";
+            this.gbTelNumber.Size = new System.Drawing.Size(305, 74);
+            this.gbTelNumber.TabIndex = 10;
+            this.gbTelNumber.TabStop = false;
+            this.gbTelNumber.Text = "種別";
+            // 
+            // tbTelNumber
+            // 
+            this.tbTelNumber.Font = new System.Drawing.Font("MS UI Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.tbTelNumber.Location = new System.Drawing.Point(6, 38);
+            this.tbTelNumber.Name = "tbTelNumber";
+            this.tbTelNumber.Size = new System.Drawing.Size(293, 26);
+            this.tbTelNumber.TabIndex = 2;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(26, 19);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(29, 12);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "自宅";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(91, 20);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(29, 12);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "携帯";
+            // 
+            // rbHome
+            // 
+            this.rbHome.AutoSize = true;
+            this.rbHome.Location = new System.Drawing.Point(6, 18);
+            this.rbHome.Name = "rbHome";
+            this.rbHome.Size = new System.Drawing.Size(14, 13);
+            this.rbHome.TabIndex = 0;
+            this.rbHome.TabStop = true;
+            this.rbHome.UseVisualStyleBackColor = true;
+            // 
+            // rbMob
+            // 
+            this.rbMob.AutoSize = true;
+            this.rbMob.Location = new System.Drawing.Point(71, 19);
+            this.rbMob.Name = "rbMob";
+            this.rbMob.Size = new System.Drawing.Size(14, 13);
+            this.rbMob.TabIndex = 0;
+            this.rbMob.TabStop = true;
+            this.rbMob.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 566);
+            this.Controls.Add(this.gbTelNumber);
             this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cbCompany);
@@ -329,6 +408,7 @@ namespace AddressBook {
             this.Controls.Add(this.tbAddress);
             this.Controls.Add(this.tbMailAddress);
             this.Controls.Add(this.tbName);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -339,6 +419,8 @@ namespace AddressBook {
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPersons)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).EndInit();
+            this.gbTelNumber.ResumeLayout(false);
+            this.gbTelNumber.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -372,6 +454,13 @@ namespace AddressBook {
         private System.Windows.Forms.SaveFileDialog sfdSaveDialog;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker dateTimePicker;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.GroupBox gbTelNumber;
+        private System.Windows.Forms.TextBox tbTelNumber;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.RadioButton rbHome;
+        private System.Windows.Forms.RadioButton rbMob;
     }
 }
 
