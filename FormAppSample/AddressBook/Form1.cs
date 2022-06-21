@@ -50,8 +50,9 @@ namespace AddressBook {
                 MailAddress = tbMailAddress.Text,
                 Address = tbAddress.Text,
                 Company = cbCompany.Text,
-                Picture = pbPicture.Image,
                 listGroup = GetCheckBoxGroup(),
+                Registration = dateTimePicker.Value,
+                Picture = pbPicture.Image,
             };
 
             listPerson.Add(newPerson);
@@ -71,6 +72,7 @@ namespace AddressBook {
             listPerson[dgvPersons.CurrentRow.Index].Address = tbAddress.Text;
             listPerson[dgvPersons.CurrentRow.Index].Company = cbCompany.Text;
             listPerson[dgvPersons.CurrentRow.Index].listGroup = GetCheckBoxGroup();
+            listPerson[dgvPersons.CurrentRow.Index].Registration = dateTimePicker.Value;
             listPerson[dgvPersons.CurrentRow.Index].Picture = pbPicture.Image;
             dgvPersons.Refresh();   //データグリッドビュー更新
         }
@@ -105,6 +107,7 @@ namespace AddressBook {
             tbMailAddress.Text = listPerson[indexRow].MailAddress;
             tbAddress.Text = listPerson[indexRow].Address;
             cbCompany.Text = listPerson[indexRow].Company;
+            dateTimePicker.Value = listPerson[indexRow].Registration;
             pbPicture.Image = listPerson[indexRow].Picture;
 
             allClear();
