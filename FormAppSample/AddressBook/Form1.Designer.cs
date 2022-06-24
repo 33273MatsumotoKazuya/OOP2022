@@ -366,6 +366,7 @@ namespace AddressBook {
             // rbHome
             // 
             this.rbHome.AutoSize = true;
+            this.rbHome.Checked = true;
             this.rbHome.Location = new System.Drawing.Point(6, 18);
             this.rbHome.Name = "rbHome";
             this.rbHome.Size = new System.Drawing.Size(14, 13);
@@ -380,7 +381,6 @@ namespace AddressBook {
             this.rbMob.Name = "rbMob";
             this.rbMob.Size = new System.Drawing.Size(14, 13);
             this.rbMob.TabIndex = 0;
-            this.rbMob.TabStop = true;
             this.rbMob.UseVisualStyleBackColor = true;
             // 
             // Form1

@@ -75,6 +75,7 @@ namespace AddressBook {
             listPerson[dgvPersons.CurrentRow.Index].Company = cbCompany.Text;
             listPerson[dgvPersons.CurrentRow.Index].listGroup = GetCheckBoxGroup();
             listPerson[dgvPersons.CurrentRow.Index].Registration = dateTimePicker.Value;
+            listPerson[dgvPersons.CurrentRow.Index].KindNumber = GetKindNumber();
             listPerson[dgvPersons.CurrentRow.Index].TelNumber = tbTelNumber.Text;
             listPerson[dgvPersons.CurrentRow.Index].Picture = pbPicture.Image;
             dgvPersons.Refresh();   //データグリッドビュー更新
@@ -104,18 +105,31 @@ namespace AddressBook {
             //選択した行のインデックスを取得
             if (dgvPersons.CurrentRow == null) return;
 
-            var indexRow = dgvPersons.CurrentRow.Index;
+            var index = dgvPersons.CurrentRow.Index;
 
-            tbName.Text = listPerson[indexRow].Name;
-            tbMailAddress.Text = listPerson[indexRow].MailAddress;
-            tbAddress.Text = listPerson[indexRow].Address;
-            cbCompany.Text = listPerson[indexRow].Company;
+            tbName.Text = listPerson[index].Name;
+            tbMailAddress.Text = listPerson[index].MailAddress;
+            tbAddress.Text = listPerson[index].Address;
+            cbCompany.Text = listPerson[index].Company;
 
-            dateTimePicker.Value = 
-                listPerson[indexRow].Registration.Year > 1900 ? listPerson[indexRow].Registration : DateTime.Today;
+            dateTimePicker.Value =
+                listPerson[index].Registration.Year > 1900 ? listPerson[index].Registration : DateTime.Today;
+            pbPicture.Image = listPerson[index].Picture;
+            setKindNumber(index);
+            setGroupType(index);
+        }
 
-            pbPicture.Image = listPerson[indexRow].Picture;
+        private void setKindNumber(int indexRow) {
+            if (listPerson[indexRow].KindNumber == Person.KindNumberType.自宅) {
+                rbHome.Checked = true;
+                rbMob.Checked = false;
+            } else {
+                rbHome.Checked = false;
+                rbMob.Checked = true;
+            }
+        }
 
+        private void setGroupType(int indexRow) {
             allClear();
 
             foreach (var group in listPerson[indexRow].listGroup) {
