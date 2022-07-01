@@ -42,22 +42,29 @@ namespace RssReader {
             }
         }
 
-        private void lbRssTitle_SelectedIndexChanged(object sender, EventArgs e) {
-            wbBrowser.Navigate((string)xNews.ElementAt(lbRssTitle.SelectedIndex).Element("link"));
+        private void lbRssTitle_Click(object sender, EventArgs e) {
+            wvBrowser.Source = new Uri((string)xNews.ElementAt(lbRssTitle.SelectedIndex).Element("link"));
         }
 
         private void btNext_Click(object sender, EventArgs e) {
-            var index = lbRssTitle.SelectedIndex;
-            if (index < lbRssTitle.Items.Count - 1) {
-                lbRssTitle.SetSelected(index + 1, true);
-            }
+            wvBrowser.GoForward();
+        }
+        
+        private void btBack_Click(object sender, EventArgs e) {
+            wvBrowser.GoBack();
         }
 
-        private void btBack_Click(object sender, EventArgs e) {
-            var index = lbRssTitle.SelectedIndex;
-            if (index > 0) {
-                lbRssTitle.SetSelected(index - 1, true);
-            }
+        private void RssReader_Load(object sender, EventArgs e) {
+            checkEnabled();
+        }
+
+        private void checkEnabled() {
+            btBack.Enabled = wvBrowser.CanGoBack;
+            btNext.Enabled = wvBrowser.CanGoForward;
+        }
+
+        private void wvBrowser_NavigationCompleted(object sender, Microsoft.Toolkit.Win32.UI.Controls.Interop.WinRT.WebViewControlNavigationCompletedEventArgs e) {
+            checkEnabled();
         }
     }
 }

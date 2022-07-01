@@ -27,9 +27,10 @@ namespace RssReader {
             this.cbRssUrl = new System.Windows.Forms.ComboBox();
             this.btRssGet = new System.Windows.Forms.Button();
             this.lbRssTitle = new System.Windows.Forms.ListBox();
-            this.wbBrowser = new System.Windows.Forms.WebBrowser();
             this.btNext = new System.Windows.Forms.Button();
             this.btBack = new System.Windows.Forms.Button();
+            this.wvBrowser = new Microsoft.Toolkit.Forms.UI.Controls.WebView();
+            ((System.ComponentModel.ISupportInitialize)(this.wvBrowser)).BeginInit();
             this.SuspendLayout();
             // 
             // cbRssUrl
@@ -56,52 +57,56 @@ namespace RssReader {
             this.lbRssTitle.ItemHeight = 12;
             this.lbRssTitle.Location = new System.Drawing.Point(12, 50);
             this.lbRssTitle.Name = "lbRssTitle";
-            this.lbRssTitle.Size = new System.Drawing.Size(267, 508);
+            this.lbRssTitle.Size = new System.Drawing.Size(267, 604);
             this.lbRssTitle.TabIndex = 2;
-            this.lbRssTitle.SelectedIndexChanged += new System.EventHandler(this.lbRssTitle_SelectedIndexChanged);
-            // 
-            // wbBrowser
-            // 
-            this.wbBrowser.Location = new System.Drawing.Point(301, 50);
-            this.wbBrowser.MinimumSize = new System.Drawing.Size(20, 20);
-            this.wbBrowser.Name = "wbBrowser";
-            this.wbBrowser.ScriptErrorsSuppressed = true;
-            this.wbBrowser.Size = new System.Drawing.Size(720, 508);
-            this.wbBrowser.TabIndex = 3;
+            this.lbRssTitle.Click += new System.EventHandler(this.lbRssTitle_Click);
             // 
             // btNext
             // 
-            this.btNext.Location = new System.Drawing.Point(731, 4);
+            this.btNext.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.btNext.Location = new System.Drawing.Point(757, 9);
             this.btNext.Name = "btNext";
             this.btNext.Size = new System.Drawing.Size(35, 35);
             this.btNext.TabIndex = 4;
-            this.btNext.Text = "次へ";
+            this.btNext.Text = "▶";
             this.btNext.UseVisualStyleBackColor = true;
             this.btNext.Click += new System.EventHandler(this.btNext_Click);
             // 
             // btBack
             // 
-            this.btBack.Location = new System.Drawing.Point(690, 4);
+            this.btBack.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.btBack.Location = new System.Drawing.Point(703, 9);
             this.btBack.Name = "btBack";
             this.btBack.Size = new System.Drawing.Size(35, 35);
             this.btBack.TabIndex = 4;
-            this.btBack.Text = "戻る";
+            this.btBack.Text = "◀";
             this.btBack.UseVisualStyleBackColor = true;
             this.btBack.Click += new System.EventHandler(this.btBack_Click);
+            // 
+            // wvBrowser
+            // 
+            this.wvBrowser.Location = new System.Drawing.Point(301, 50);
+            this.wvBrowser.MinimumSize = new System.Drawing.Size(20, 20);
+            this.wvBrowser.Name = "wvBrowser";
+            this.wvBrowser.Size = new System.Drawing.Size(734, 604);
+            this.wvBrowser.TabIndex = 5;
+            this.wvBrowser.NavigationCompleted += new System.EventHandler<Microsoft.Toolkit.Win32.UI.Controls.Interop.WinRT.WebViewControlNavigationCompletedEventArgs>(this.wvBrowser_NavigationCompleted);
             // 
             // RssReader
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1025, 563);
+            this.ClientSize = new System.Drawing.Size(1047, 680);
+            this.Controls.Add(this.wvBrowser);
             this.Controls.Add(this.btBack);
             this.Controls.Add(this.btNext);
-            this.Controls.Add(this.wbBrowser);
             this.Controls.Add(this.lbRssTitle);
             this.Controls.Add(this.btRssGet);
             this.Controls.Add(this.cbRssUrl);
             this.Name = "RssReader";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.RssReader_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.wvBrowser)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -111,9 +116,9 @@ namespace RssReader {
         private System.Windows.Forms.ComboBox cbRssUrl;
         private System.Windows.Forms.Button btRssGet;
         private System.Windows.Forms.ListBox lbRssTitle;
-        private System.Windows.Forms.WebBrowser wbBrowser;
         private System.Windows.Forms.Button btNext;
         private System.Windows.Forms.Button btBack;
+        private Microsoft.Toolkit.Forms.UI.Controls.WebView wvBrowser;
     }
 }
 
