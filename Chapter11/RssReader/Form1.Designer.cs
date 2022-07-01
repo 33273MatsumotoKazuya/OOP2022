@@ -28,6 +28,8 @@ namespace RssReader {
             this.btRssGet = new System.Windows.Forms.Button();
             this.lbRssTitle = new System.Windows.Forms.ListBox();
             this.wbBrowser = new System.Windows.Forms.WebBrowser();
+            this.btNext = new System.Windows.Forms.Button();
+            this.btBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cbRssUrl
@@ -40,7 +42,7 @@ namespace RssReader {
             // 
             // btRssGet
             // 
-            this.btRssGet.Location = new System.Drawing.Point(607, 9);
+            this.btRssGet.Location = new System.Drawing.Point(588, 10);
             this.btRssGet.Name = "btRssGet";
             this.btRssGet.Size = new System.Drawing.Size(75, 23);
             this.btRssGet.TabIndex = 1;
@@ -67,11 +69,33 @@ namespace RssReader {
             this.wbBrowser.Size = new System.Drawing.Size(720, 508);
             this.wbBrowser.TabIndex = 3;
             // 
+            // btNext
+            // 
+            this.btNext.Location = new System.Drawing.Point(731, 4);
+            this.btNext.Name = "btNext";
+            this.btNext.Size = new System.Drawing.Size(35, 35);
+            this.btNext.TabIndex = 4;
+            this.btNext.Text = "次へ";
+            this.btNext.UseVisualStyleBackColor = true;
+            this.btNext.Click += new System.EventHandler(this.btNext_Click);
+            // 
+            // btBack
+            // 
+            this.btBack.Location = new System.Drawing.Point(690, 4);
+            this.btBack.Name = "btBack";
+            this.btBack.Size = new System.Drawing.Size(35, 35);
+            this.btBack.TabIndex = 4;
+            this.btBack.Text = "戻る";
+            this.btBack.UseVisualStyleBackColor = true;
+            this.btBack.Click += new System.EventHandler(this.btBack_Click);
+            // 
             // RssReader
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1025, 563);
+            this.Controls.Add(this.btBack);
+            this.Controls.Add(this.btNext);
             this.Controls.Add(this.wbBrowser);
             this.Controls.Add(this.lbRssTitle);
             this.Controls.Add(this.btRssGet);
@@ -88,6 +112,8 @@ namespace RssReader {
         private System.Windows.Forms.Button btRssGet;
         private System.Windows.Forms.ListBox lbRssTitle;
         private System.Windows.Forms.WebBrowser wbBrowser;
+        private System.Windows.Forms.Button btNext;
+        private System.Windows.Forms.Button btBack;
     }
 }
 

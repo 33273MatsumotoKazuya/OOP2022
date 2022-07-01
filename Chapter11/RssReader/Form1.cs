@@ -19,7 +19,9 @@ namespace RssReader {
         IEnumerable<XElement> xNews;
 
         private void btRssGet_Click(object sender, EventArgs e) {
+
             using (var wc = new WebClient()) {
+                lbRssTitle.Items.Clear();
                 var stream = wc.OpenRead(cbRssUrl.Text);
 
                 var xdoc = XDocument.Load(stream);
@@ -29,6 +31,7 @@ namespace RssReader {
                     lbRssTitle.Items.Add((string)data.Element("title"));
                 }
 
+                lbRssTitle.SetSelected(0, true);
                 cbAddText();
             }
         }
@@ -40,8 +43,21 @@ namespace RssReader {
         }
 
         private void lbRssTitle_SelectedIndexChanged(object sender, EventArgs e) {
+            wbBrowser.Navigate((string)xNews.ElementAt(lbRssTitle.SelectedIndex).Element("link"));
+        }
+
+        private void btNext_Click(object sender, EventArgs e) {
             var index = lbRssTitle.SelectedIndex;
-            wbBrowser.Navigate((string)xNews.ElementAt(index).Element("link"));
+            if (index < lbRssTitle.Items.Count - 1) {
+                lbRssTitle.SetSelected(index + 1, true);
+            }
+        }
+
+        private void btBack_Click(object sender, EventArgs e) {
+            var index = lbRssTitle.SelectedIndex;
+            if (index > 0) {
+                lbRssTitle.SetSelected(index - 1, true);
+            }
         }
     }
 }
