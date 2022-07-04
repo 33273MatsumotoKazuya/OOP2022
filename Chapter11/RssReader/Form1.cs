@@ -36,13 +36,8 @@ namespace RssReader {
             }
         }
 
-        private void cbAddText() {
-            if (!cbRssUrl.Items.Contains(cbRssUrl.Text)) {
-                cbRssUrl.Items.Add(cbRssUrl.Text);
-            }
-        }
-
         private void lbRssTitle_Click(object sender, EventArgs e) {
+            if (lbRssTitle.SelectedIndex == -1) return;
             wvBrowser.Source = new Uri((string)xNews.ElementAt(lbRssTitle.SelectedIndex).Element("link"));
         }
 
@@ -57,14 +52,20 @@ namespace RssReader {
         private void RssReader_Load(object sender, EventArgs e) {
             checkEnabled();
         }
+        
+        private void wvBrowser_NavigationCompleted(object sender, Microsoft.Toolkit.Win32.UI.Controls.Interop.WinRT.WebViewControlNavigationCompletedEventArgs e) {
+            checkEnabled();
+        }
 
         private void checkEnabled() {
             btBack.Enabled = wvBrowser.CanGoBack;
             btNext.Enabled = wvBrowser.CanGoForward;
         }
 
-        private void wvBrowser_NavigationCompleted(object sender, Microsoft.Toolkit.Win32.UI.Controls.Interop.WinRT.WebViewControlNavigationCompletedEventArgs e) {
-            checkEnabled();
+        private void cbAddText() {
+            if (!cbRssUrl.Items.Contains(cbRssUrl.Text)) {
+                cbRssUrl.Items.Add(cbRssUrl.Text);
+            }
         }
     }
 }
