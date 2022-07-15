@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace CarReportSystem {
     public partial class Form1 : Form {
@@ -54,8 +57,18 @@ namespace CarReportSystem {
                 Report = tbReport.Text,
                 Picture = pbPicture.Image,
             };
-
             listCarReport.Add(newCarReport);
+            setCheckBox(newCarReport);
+            EnabledCheck();
+        }
+
+        private void setCheckBox(CarReport newCarReport) {
+            if (!cbAuther.Items.Contains(cbAuther.Text)) {
+                cbAuther.Items.Add(cbAuther.Text);
+            }
+            if (!cbCarName.Items.Contains(cbCarName.Text)) {
+                cbCarName.Items.Add(cbCarName.Text);
+            }
         }
 
         //修正ボタン
@@ -86,6 +99,140 @@ namespace CarReportSystem {
                 return CarReport.MakerGroup.外国車;
             } else {
                 return CarReport.MakerGroup.その他;
+            }
+        }
+
+        private void rbChecked(int index) {
+            switch (listCarReport[index].Maker) {
+                case CarReport.MakerGroup.トヨタ:
+                    rbToyota.Checked = true;
+                    break;
+                case CarReport.MakerGroup.日産:
+                    rbNissan.Checked = true;
+                    break;
+                case CarReport.MakerGroup.ホンダ:
+                    rbHonda.Checked = true;
+                    break;
+                case CarReport.MakerGroup.スバル:
+                    rbSubaru.Checked = true;
+                    break;
+                case CarReport.MakerGroup.外国車:
+                    rbForeignCar.Checked = true;
+                    break;
+                case CarReport.MakerGroup.その他:
+                    rbOther.Checked = true;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        //削除ボタン
+        private void btReportDelete_Click(object sender, EventArgs e) {
+            DialogResult result = MessageBox.Show("本当に削除してよいですか？",
+               "確認",
+               MessageBoxButtons.OKCancel,
+               MessageBoxIcon.Exclamation);
+
+            if (result == DialogResult.OK) {
+                dgvCarReports.Rows.RemoveAt(dgvCarReports.CurrentRow.Index);
+                dgvCarReports.Refresh();
+            }
+
+            EnabledCheck();
+        }
+
+        private void dgvCarReports_Click(object sender, EventArgs e) {
+            if (dgvCarReports.CurrentRow == null) return;
+
+            var index = dgvCarReports.CurrentRow.Index;
+
+            dateTimePicker.Value = listCarReport[index].Date.Year > 1900 ? listCarReport[index].Date : DateTime.Today;
+            cbAuther.Text = listCarReport[index].Auther;
+            rbChecked(index);
+            cbCarName.Text = listCarReport[index].CarName;
+            tbReport.Text = listCarReport[index].Report;
+            pbPicture.Image = listCarReport[index].Picture;
+        }
+
+        private void btSave_Click(object sender, EventArgs e) {
+            if (sfdSaveDialog.ShowDialog() == DialogResult.OK) {
+                try {
+                    //バイナリ形式でシリアル化
+                    var bf = new BinaryFormatter();
+
+                    using (FileStream fs = File.Open(sfdSaveDialog.FileName, FileMode.Create)) {
+                        bf.Serialize(fs, listCarReport);
+                    }
+                }
+                catch (Exception ex) {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void btOpen_Click(object sender, EventArgs e) {
+            if (ofbFileOpenDialog.ShowDialog() == DialogResult.OK) {
+                try {
+                    //バイナリ形式で逆シリアル化
+                    var bf = new BinaryFormatter();
+
+                    using (FileStream fs = File.Open(ofbFileOpenDialog.FileName, FileMode.Open, FileAccess.Read)) {
+                        //逆シリアルして読み込む
+                        listCarReport = (BindingList<CarReport>)bf.Deserialize(fs);
+                        dgvCarReports.DataSource = null;
+                        dgvCarReports.DataSource = listCarReport;
+                    }
+                }
+                catch (Exception ex) {
+                    MessageBox.Show(ex.Message);
+                }
+
+                cbAuther.Items.Clear();
+                cbCarName.Items.Clear();
+
+                foreach (var item in listCarReport) {
+                    setCheckBox(item);
+                }
+
+                EnabledCheck();
+            }
+        }
+
+        private void EnabledCheck() {
+            if (listCarReport.Count() > 0) {
+                //マスク解除
+                btReportDelete.Enabled = true;
+                btReportCorrect.Enabled = true;
+            } else {
+                //マスク設定
+                btReportDelete.Enabled = false;
+                btReportCorrect.Enabled = false;
+            }
+        }
+
+        private void 色設定ToolStripMenuItem_Click(object sender, EventArgs e) {
+            if (cdColorSelect.ShowDialog() == DialogResult.OK) {
+                this.BackColor = cdColorSelect.Color;
+            }
+        }
+
+        private void btChangeSizeMode_Click(object sender, EventArgs e) {
+            if (pbPicture.SizeMode == PictureBoxSizeMode.StretchImage) {
+                pbPicture.SizeMode = PictureBoxSizeMode.AutoSize;
+                return;
+            }
+            if (pbPicture.SizeMode == PictureBoxSizeMode.AutoSize) {
+                pbPicture.SizeMode = PictureBoxSizeMode.CenterImage;
+                return;
+            }
+            if (pbPicture.SizeMode == PictureBoxSizeMode.CenterImage) {
+                pbPicture.SizeMode = PictureBoxSizeMode.Zoom;
+                return;
+            }
+            if (pbPicture.SizeMode == PictureBoxSizeMode.Zoom) {
+                pbPicture.SizeMode = PictureBoxSizeMode.StretchImage;
+                return;
             }
         }
     }
