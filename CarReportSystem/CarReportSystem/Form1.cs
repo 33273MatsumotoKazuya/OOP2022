@@ -16,7 +16,8 @@ using System.Xml.Serialization;
 namespace CarReportSystem {
     public partial class Form1 : Form {
 
-        Settings settings = new Settings { };
+        //設定保存用オブジェクト
+        Settings settings = new Settings();
 
         //レポートデータ管理用リスト
         BindingList<CarReport> listCarReport = new BindingList<CarReport>();
@@ -218,9 +219,8 @@ namespace CarReportSystem {
         private void 色設定ToolStripMenuItem_Click(object sender, EventArgs e) {
             if (cdColorSelect.ShowDialog() == DialogResult.OK) {
                 BackColor = cdColorSelect.Color;
-            }
-
-            settings.MainFormColor = BackColor;
+                settings.MainFormColor = cdColorSelect.Color;
+            }  
         }
 
         private void btChangeSizeMode_Click(object sender, EventArgs e) {
@@ -243,6 +243,7 @@ namespace CarReportSystem {
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e) {
+            //設定ファイルをシリアル化
             using (var writer = XmlWriter.Create("Settings.xml")) {
                 var serializer = new XmlSerializer(settings.GetType());
                 serializer.Serialize(writer, settings);
@@ -250,6 +251,7 @@ namespace CarReportSystem {
         }
 
         private void Form1_Load(object sender, EventArgs e) {
+            EnabledCheck();
             using (var reader = XmlReader.Create("Settings.xml")) {
                 var serializer = new XmlSerializer(typeof(Settings));
                 var setting = serializer.Deserialize(reader) as Settings;
