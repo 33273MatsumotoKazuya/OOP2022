@@ -9,10 +9,14 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 using System.Xml.Linq;
+using System.Xml.Serialization;
 
 namespace CarReportSystem {
     public partial class Form1 : Form {
+
+        Settings settings = new Settings { };
 
         //レポートデータ管理用リスト
         BindingList<CarReport> listCarReport = new BindingList<CarReport>();
@@ -213,8 +217,10 @@ namespace CarReportSystem {
 
         private void 色設定ToolStripMenuItem_Click(object sender, EventArgs e) {
             if (cdColorSelect.ShowDialog() == DialogResult.OK) {
-                this.BackColor = cdColorSelect.Color;
+                BackColor = cdColorSelect.Color;
             }
+
+            settings.MainFormColor = BackColor;
         }
 
         private void btChangeSizeMode_Click(object sender, EventArgs e) {
@@ -233,6 +239,21 @@ namespace CarReportSystem {
             if (pbPicture.SizeMode == PictureBoxSizeMode.Zoom) {
                 pbPicture.SizeMode = PictureBoxSizeMode.StretchImage;
                 return;
+            }
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e) {
+            using (var writer = XmlWriter.Create("Settings.xml")) {
+                var serializer = new XmlSerializer(settings.GetType());
+                serializer.Serialize(writer, settings);
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e) {
+            using (var reader = XmlReader.Create("Settings.xml")) {
+                var serializer = new XmlSerializer(typeof(Settings));
+                var setting = serializer.Deserialize(reader) as Settings;
+                BackColor = setting.MainFormColor;
             }
         }
     }
