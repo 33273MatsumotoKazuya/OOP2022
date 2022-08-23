@@ -244,7 +244,7 @@ namespace CarReportSystem {
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e) {
             //設定ファイルをシリアル化
-            using (var writer = XmlWriter.Create("Settings.xml")) {
+            using (var writer = XmlWriter.Create("settings.xml")) {
                 var serializer = new XmlSerializer(settings.GetType());
                 serializer.Serialize(writer, settings);
             }
@@ -252,10 +252,10 @@ namespace CarReportSystem {
 
         private void Form1_Load(object sender, EventArgs e) {
             EnabledCheck();
-            using (var reader = XmlReader.Create("Settings.xml")) {
+            using (var reader = XmlReader.Create("settings.xml")) {
                 var serializer = new XmlSerializer(typeof(Settings));
-                var setting = serializer.Deserialize(reader) as Settings;
-                BackColor = setting.MainFormColor;
+                settings = serializer.Deserialize(reader) as Settings;
+                BackColor = settings.MainFormColor;
             }
         }
     }
