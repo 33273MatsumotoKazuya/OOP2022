@@ -17,7 +17,7 @@ namespace CarReportSystem {
     public partial class Form1 : Form {
 
         //設定保存用オブジェクト
-        Settings settings = new Settings();
+        Settings settings = Settings.getInstance();
 
         //レポートデータ管理用リスト
         BindingList<CarReport> listCarReport = new BindingList<CarReport>();
@@ -252,10 +252,17 @@ namespace CarReportSystem {
 
         private void Form1_Load(object sender, EventArgs e) {
             EnabledCheck();
-            using (var reader = XmlReader.Create("settings.xml")) {
-                var serializer = new XmlSerializer(typeof(Settings));
-                settings = serializer.Deserialize(reader) as Settings;
-                BackColor = settings.MainFormColor;
+            try {
+                using (var reader = XmlReader.Create("settings.xml")) {
+                    var serializer = new XmlSerializer(typeof(Settings));
+                    settings = serializer.Deserialize(reader) as Settings;
+                    BackColor = settings.MainFormColor;
+                }
+            }
+            catch (Exception ex) {
+                Console.WriteLine("例外メッセージ --> " + ex.Message);
+                Console.WriteLine("スタックトレース ");
+                Console.WriteLine(ex.StackTrace);
             }
         }
     }
