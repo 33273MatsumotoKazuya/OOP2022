@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4F1262DB-2D1B-4521-A98E-4C581F716BDA}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>TextFileProcessor</RootNamespace>
-    <AssemblyName>TextFileProcessor</AssemblyName>
+    <ProjectGuid>{1D6177E7-7700-4083-898B-AA5E11D086F7}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>DistanceConverter</RootNamespace>
+    <AssemblyName>DistanceConverter</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -32,9 +32,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -46,8 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConcreteConvarter.cs" />
+    <Compile Include="ConverterBase.cs" />
+    <Compile Include="ConverterFactory.cs" />
+    <Compile Include="DistanceConverter.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TextProcessor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
