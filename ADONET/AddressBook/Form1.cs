@@ -15,8 +15,6 @@ namespace AddressBook {
             InitializeComponent();
         }
 
-        private void addressTableBindingNavigatorSaveItem_Click(object sender, EventArgs e) { }
-
         private void Form1_Load(object sender, EventArgs e) {
             pbImage.SizeMode = PictureBoxSizeMode.StretchImage;
         }
@@ -27,13 +25,19 @@ namespace AddressBook {
         }
 
         private void addressTableDataGridView_Click(object sender, EventArgs e) {
+            if (addressTableDataGridView.CurrentRow == null) return;
+
             //データグリッドビューの選択レコードを各テキストボックスへ設定
             tbName.Text = addressTableDataGridView.CurrentRow.Cells[1].Value.ToString();
             tbAddress.Text = addressTableDataGridView.CurrentRow.Cells[2].Value.ToString();
             tbTel.Text = addressTableDataGridView.CurrentRow.Cells[3].Value.ToString();
             tbMail.Text = addressTableDataGridView.CurrentRow.Cells[4].Value.ToString();
             tbMemo.Text = addressTableDataGridView.CurrentRow.Cells[5].Value.ToString();
-            
+            if (!DBNull.Value.Equals(addressTableDataGridView.CurrentRow.Cells[6].Value)) {
+                pbImage.Image = ByteArrayToImage((byte[])addressTableDataGridView.CurrentRow.Cells[6].Value);
+            } else {
+                pbImage.Image = null;
+            }
         }
 
         private void btUpdate_Click(object sender, EventArgs e) {
@@ -72,6 +76,49 @@ namespace AddressBook {
             ImageConverter imgconv = new ImageConverter();
             byte[] b = (byte[])imgconv.ConvertTo(img, typeof(byte[]));
             return b;
+        }
+
+        private void btAdd_Click(object sender, EventArgs e) {
+            DataRow newRow = infosys202224DataSet.AddressTable.NewRow();
+            newRow[1] = tbName.Text;
+            newRow[2] = tbAddress.Text;
+            newRow[3] = tbTel.Text;
+            newRow[4] = tbMail.Text;
+            newRow[5] = tbMemo.Text;
+            newRow[6] = ImageToByteArray(pbImage.Image);
+
+            //データセットへ新しいレコードを追加
+            infosys202224DataSet.AddressTable.Rows.Add(newRow);
+            //データベース更新
+            this.addressTableTableAdapter.Update(this.infosys202224DataSet.AddressTable);
+        }
+
+        private void addressTableDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e) { }
+
+        private void btSearchName_Click(object sender, EventArgs e) {
+            this.addressTableTableAdapter.SearchName(this.infosys202224DataSet.AddressTable, tbSearchName.Text);
+        }
+
+        private void btClear_Click(object sender, EventArgs e) {
+            tbName.Text = null;
+            tbAddress.Text = null;
+            tbTel.Text = null;
+            tbMail.Text = null;
+            tbMemo.Text = null;
+            pbImage.Image = null;
+        }
+
+        private void btSearchNameClear_Click(object sender, EventArgs e) {
+            tbSearchName.Text = null;
+            this.addressTableTableAdapter.Fill(this.infosys202224DataSet.AddressTable);
+        }
+
+        private void 終了ToolStripMenuItem_Click(object sender, EventArgs e) {
+            Application.Exit();
+        }
+
+        private void バージョン情報ToolStripMenuItem_Click(object sender, EventArgs e) {
+            new Version().ShowDialog();
         }
     }
 }
