@@ -251,6 +251,8 @@ namespace CarReportSystem {
         }
 
         private void Form1_Load(object sender, EventArgs e) {
+            // TODO: このコード行はデータを 'infosys202224DataSet.CarReportDB' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
+            this.carReportDBTableAdapter.Fill(this.infosys202224DataSet.CarReportDB);
             EnabledCheck();
             try {
                 using (var reader = XmlReader.Create("settings.xml")) {
@@ -264,6 +266,13 @@ namespace CarReportSystem {
                 Console.WriteLine("スタックトレース ");
                 Console.WriteLine(ex.StackTrace);
             }
+        }
+
+        private void carReportDBBindingNavigatorSaveItem_Click(object sender, EventArgs e) {
+            this.Validate();
+            this.carReportDBBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.infosys202224DataSet);
+
         }
     }
 }
