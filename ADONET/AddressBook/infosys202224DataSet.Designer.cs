@@ -1032,8 +1032,8 @@ SELECT ID, Name, Address, Tel, Mail, Memo, Image FROM AddressTable WHERE (ID = @
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "SELECT                      ID, Name, Address, Tel, Mail, Memo, Image\r\nFROM      " +
-                "                   AddressTable\r\nWHERE                       (Name LIKE N\'%\' + @" +
-                "data + N\'%\')";
+                "                   AddressTable\r\nWHERE                       (Name = N\'%\' + @dat" +
+                "a + N\'%\')";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@data", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -1085,7 +1085,7 @@ SELECT ID, Name, Address, Tel, Mail, Memo, Image FROM AddressTable WHERE (ID = @
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual infosys202224DataSet.AddressTableDataTable GetDataBy(string data) {
+        public virtual infosys202224DataSet.AddressTableDataTable GetDataBy1(string data) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((data == null)) {
                 throw new global::System.ArgumentNullException("data");
