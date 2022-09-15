@@ -19,9 +19,6 @@ namespace CarReportSystem {
         //設定保存用オブジェクト
         Settings settings = Settings.getInstance();
 
-        //レポートデータ管理用リスト
-        BindingList<CarReport> listCarReport = new BindingList<CarReport>();
-
         public Form1() {
             InitializeComponent();
         }
@@ -58,16 +55,19 @@ namespace CarReportSystem {
             newRow[3] = GetCarMaker();
             newRow[4] = cbCarName.Text;
             newRow[5] = tbReport.Text;
-            newRow[6] = ImageToByteArray(pbPicture.Image);
+            if (pbPicture.Image != null) {
+                newRow[6] = ImageToByteArray(pbPicture.Image);
+            }
 
             //データセットへ新しいレコードを追加
             infosys202224DataSet.CarReportDB.Rows.Add(newRow);
             //データベース更新
             this.carReportDBTableAdapter.Update(this.infosys202224DataSet.CarReportDB);
+            setCheckBox();
             EnabledCheck();
         }
 
-        private void setCheckBox(CarReport newCarReport) {
+        private void setCheckBox() {
             if (!cbAuther.Items.Contains(cbAuther.Text)) {
                 cbAuther.Items.Add(cbAuther.Text);
             }
@@ -90,23 +90,23 @@ namespace CarReportSystem {
             this.tableAdapterManager.UpdateAll(this.infosys202224DataSet);
         }
 
-        private CarReport.MakerGroup GetCarMaker() {
+        private string GetCarMaker() {
             if (rbToyota.Checked) {
-                return CarReport.MakerGroup.トヨタ;
+                return "トヨタ";
             }
             if (rbNissan.Checked) {
-                return CarReport.MakerGroup.日産;
+                return "日産";
             }
             if (rbHonda.Checked) {
-                return CarReport.MakerGroup.ホンダ;
+                return "ホンダ";
             }
             if (rbSubaru.Checked) {
-                return CarReport.MakerGroup.スバル;
+                return "スバル";
             }
             if (rbForeignCar.Checked) {
-                return CarReport.MakerGroup.外国車;
+                return "外国車";
             } else {
-                return CarReport.MakerGroup.その他;
+                return"その他";
             }
         }
 
@@ -138,6 +138,7 @@ namespace CarReportSystem {
         //削除ボタン
         private void btReportDelete_Click(object sender, EventArgs e) {
             infosys202224DataSet.CarReportDB.Rows.RemoveAt(carReportDBDataGridView.CurrentRow.Index);
+            EnabledCheck();
         }
 
         private void EnabledCheck() {
@@ -229,7 +230,7 @@ namespace CarReportSystem {
         }
 
         private void carReportDBDataGridView_Click(object sender, EventArgs e) {
-            if (carReportDBDataGridView.CurrentRow.Cells[0] == null) return;
+            if (carReportDBDataGridView.CurrentRow == null) { return; }
 
             //データグリッドビューの選択レコードを各テキストボックスへ設定
             dateTimePicker.Value = (DateTime)carReportDBDataGridView.CurrentRow.Cells[1].Value;
@@ -254,5 +255,6 @@ namespace CarReportSystem {
         }
 
         private void carReportDBDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e) { }
+        
     }
 }
