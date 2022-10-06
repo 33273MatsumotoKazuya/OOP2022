@@ -8,6 +8,7 @@ namespace Chapter15 {
     class Program {
         static void Main(string[] args) {
 
+            IOrderedEnumerable<IGrouping<int, Book>> books = null;
             var years = new List<int>();
             int year;
 
@@ -23,31 +24,23 @@ namespace Chapter15 {
             var odb = int.Parse(Console.ReadLine());
 
             if (odb == 1) {
-                var books = Library.Books
+                books = Library.Books
                            .Where(b => years.Contains(b.PublishedYear))
                            .GroupBy(b => b.PublishedYear)
                            .OrderBy(g => g.Key);
-
-                foreach (var book in books) {
-                    Console.WriteLine($"{book.Key}年");
-                    foreach (var b in book) {
-                        var category = Library.Categories.Where(c => c.Id == b.CategoryId).First();
-                        Console.WriteLine($"  タイトル:{b.Title} 価格:{b.Price} カテゴリ:{category.Name}");
-                    }
-                }
             }
             if (odb == 2) {
-                var books = Library.Books
+                books = Library.Books
                            .Where(b => years.Contains(b.PublishedYear))
                            .GroupBy(b => b.PublishedYear)
                            .OrderByDescending(g => g.Key);
+            }
 
-                foreach (var book in books) {
-                    Console.WriteLine($"{book.Key}年");
-                    foreach (var b in book) {
-                        var category = Library.Categories.Where(c => c.Id == b.CategoryId).First();
-                        Console.WriteLine($"  タイトル:{b.Title} 価格{b.Price} カテゴリ:{category.Name}");
-                    }
+            foreach (var book in books) {
+                Console.WriteLine($"{book.Key}年");
+                foreach (var b in book) {
+                    var category = Library.Categories.Where(c => c.Id == b.CategoryId).First();
+                    Console.WriteLine($"  タイトル:{b.Title} 価格{b.Price} カテゴリ:{category.Name}");
                 }
             }
         }
