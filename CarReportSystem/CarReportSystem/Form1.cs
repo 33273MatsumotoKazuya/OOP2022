@@ -83,7 +83,9 @@ namespace CarReportSystem {
             carReportDBDataGridView.CurrentRow.Cells[3].Value = GetCarMaker();
             carReportDBDataGridView.CurrentRow.Cells[4].Value = cbCarName.Text;
             carReportDBDataGridView.CurrentRow.Cells[5].Value = tbReport.Text;
-            carReportDBDataGridView.CurrentRow.Cells[6].Value = ImageToByteArray(pbPicture.Image);
+            if (pbPicture.Image != null) {
+                carReportDBDataGridView.CurrentRow.Cells[6].Value = ImageToByteArray(pbPicture.Image);
+            }
 
             this.Validate();
             this.carReportDBBindingSource.EndEdit();
