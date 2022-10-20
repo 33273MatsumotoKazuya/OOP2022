@@ -18,7 +18,7 @@ namespace NumberGame {
     /// MainWindow.xaml の相互作用ロジック
     /// </summary>
     public partial class MainWindow : Window {
-        int result;
+        private int ans;
         public MainWindow() {
             InitializeComponent();
         }
@@ -26,18 +26,22 @@ namespace NumberGame {
         private void Button_Click(object sender, RoutedEventArgs e) {
             Button bt = (Button)sender;
 
-            if ((int.Parse(bt.Content.ToString()) == result)) {
+            if ((int.Parse((string)bt.Content) == ans)) {
                 infoDisp.Text = "正解!";
                 bt.Background = Brushes.Red;
             } else {
-                infoDisp.Text = "不正解";
-                bt.Background = Brushes.Blue;
+                infoDisp.Text 
+                    = (int.Parse((string)bt.Content)) < ans
+                        ? "もっと大きい" : "もっと小さい";
+                bt.Background = int.Parse((string)bt.Content) < ans
+                                    ? Brushes.Blue : Brushes.Green;
             }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e) {
+            infoDisp.Text = "ゲームスタート";
             Random rand = new Random();
-            result = rand.Next(1, 25);
+            ans = rand.Next(25) + 1;
         }
     }
 }
