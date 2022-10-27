@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CollarChecker"
         mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="500" FontSize="15" FontFamily="Segoe UI Light">
+        Title="MainWindow" Height="300" Width="750" FontSize="15" FontFamily="Segoe UI Light" Loaded="Window_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
@@ -29,19 +30,19 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Row="0" Grid.Column="0" Text="R" Margin="3,30,3,3" HorizontalAlignment="Right"/>
-            <Slider x:Name="rSlider" Grid.Row="0" Grid.Column="1" Margin="3,30,3,3" Minimum="0" Maximum="255" ValueChanged="Slider_ValueChanged"/>
+            <Slider x:Name="rSlider" Grid.Row="0" Grid.Column="1" Margin="3,30,3,3" Minimum="0" IsSnapToTickEnabled="True" Maximum="255" ValueChanged="Slider_ValueChanged"/>
             <TextBox x:Name="rValue" Grid.Row="0" Grid.Column="2" Margin="3,30,3,3" 
-                     Text="{Binding Value,ElementName=rSlider, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N0}}"/>
+                     Text="{Binding Value,ElementName=rSlider, UpdateSourceTrigger=PropertyChanged}"/>
 
             <TextBlock Grid.Row="1" Grid.Column="0" Text="G" Margin="3,30,3,3" HorizontalAlignment="Right"/>
-            <Slider x:Name="gSlider" Grid.Row="1" Grid.Column="1" Margin="3,30,3,3" Minimum="0" Maximum="255" ValueChanged="Slider_ValueChanged"/>
+            <Slider x:Name="gSlider" Grid.Row="1" Grid.Column="1" Margin="3,30,3,3" Minimum="0" IsSnapToTickEnabled="True" Maximum="255" ValueChanged="Slider_ValueChanged"/>
             <TextBox x:Name="gValue" Grid.Row="1" Grid.Column="2" Margin="3,30,3,3"
-                     Text="{Binding Value,ElementName=gSlider, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N0}}"/>
+                     Text="{Binding Value,ElementName=gSlider, UpdateSourceTrigger=PropertyChanged}"/>
 
             <TextBlock Grid.Row="2" Grid.Column="0" Text="B" Margin="3,30,3,3" HorizontalAlignment="Right"/>
-            <Slider x:Name="bSlider" Grid.Row="2" Grid.Column="1" Margin="3,30,3,3" Minimum="0" Maximum="255" ValueChanged="Slider_ValueChanged"/>
+            <Slider x:Name="bSlider" Grid.Row="2" Grid.Column="1" Margin="3,30,3,3" Minimum="0" IsSnapToTickEnabled="True" Maximum="255" ValueChanged="Slider_ValueChanged"/>
             <TextBox x:Name="bValue" Grid.Row="2" Grid.Column="2" Margin="3,30,3,3"
-                     Text="{Binding Value,ElementName=bSlider, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N0}}"/>
+                     Text="{Binding Value,ElementName=bSlider, UpdateSourceTrigger=PropertyChanged}"/>
 
             <ComboBox Grid.Row="3" Grid.Column="1" ItemsSource="{Binding}" SelectedValue="{Binding Color}" Margin="3,30,3,3" Height="24" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="155" SelectionChanged="ComboBox_SelectionChanged">
                 <ComboBox.ItemTemplate>
@@ -57,6 +58,17 @@
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Row="0" Content="STOCK" FontSize="20" Margin="10,5" Click="Button_Click"/>
+            <ListBox x:Name="stockList" Grid.Row="1" Margin="10,5" SelectionChanged="stockList_SelectionChanged"/>
         </Grid>
     </Grid>
 </Window>

@@ -25,6 +25,17 @@ namespace CollarChecker {
         }
 
         /// <summary>
+        /// 色と色名を保持するクラス
+        /// </summary>
+        public class MyColor {
+            public Color Color { get; set; }
+            public string Name { get; set; }
+            public override string ToString() {
+                return $"R:{Color.R} G:{Color.G} B:{Color.B}";
+            }
+        }
+
+        /// <summary>
         /// すべての色を取得するメソッド
         /// </summary>
         /// <returns></returns>
@@ -33,16 +44,12 @@ namespace CollarChecker {
                 .Select(i => new MyColor() { Color = (Color)i.GetValue(null), Name = i.Name }).ToArray();
         }
 
-        /// <summary>
-        /// 色と色名を保持するクラス
-        /// </summary>
-        public class MyColor {
-            public Color Color { get; set; }
-            public string Name { get; set; }
+        private void Window_Loaded(object sender, RoutedEventArgs e) {
+            setColor();
         }
 
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) {
-            colorArea.Background = new SolidColorBrush(Color.FromRgb((byte)rSlider.Value, (byte)gSlider.Value, (byte)bSlider.Value));
+            setColor();
         }
 
         private void Border_Loaded(object sender, RoutedEventArgs e) { }
@@ -50,12 +57,28 @@ namespace CollarChecker {
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) {
             var mycolor = (MyColor)((ComboBox)sender).SelectedItem;
             var color = mycolor.Color;
-            var name = mycolor.Name;
 
             colorArea.Background = new SolidColorBrush(Color.FromArgb(color.A, color.R, color.G, color.B));
             rValue.Text = color.R.ToString();
             gValue.Text = color.G.ToString();
             bValue.Text = color.B.ToString();
+        }
+
+        private void setColor() {
+            colorArea.Background =
+                new SolidColorBrush(Color.FromRgb((byte)rSlider.Value, (byte)gSlider.Value, (byte)bSlider.Value));
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e) {
+            var item = new MyColor() { Color = Color.FromRgb((byte)rSlider.Value, (byte)gSlider.Value, (byte)bSlider.Value) };
+            stockList.Items.Add(item);
+        }
+
+        private void stockList_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            var select = (MyColor)stockList.SelectedItem;
+            rValue.Text = select.Color.R.ToString();
+            gValue.Text = select.Color.G.ToString();
+            bValue.Text = select.Color.B.ToString();
         }
     }
 }
