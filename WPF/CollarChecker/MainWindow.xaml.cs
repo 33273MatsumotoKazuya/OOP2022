@@ -19,6 +19,9 @@ namespace CollarChecker {
     /// MainWindow.xaml の相互作用ロジック
     /// </summary>
     public partial class MainWindow : Window {
+
+        MyColor mycolor;
+
         public MainWindow() {
             InitializeComponent();
             DataContext = GetColorList();
@@ -46,6 +49,7 @@ namespace CollarChecker {
 
         private void Window_Loaded(object sender, RoutedEventArgs e) {
             setColor();
+            EnableCheck();
         }
 
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) {
@@ -55,7 +59,7 @@ namespace CollarChecker {
         private void Border_Loaded(object sender, RoutedEventArgs e) { }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            var mycolor = (MyColor)((ComboBox)sender).SelectedItem;
+            mycolor = (MyColor)((ComboBox)sender).SelectedItem;
             var color = mycolor.Color;
 
             colorArea.Background = new SolidColorBrush(Color.FromArgb(color.A, color.R, color.G, color.B));
@@ -69,16 +73,36 @@ namespace CollarChecker {
                 new SolidColorBrush(Color.FromRgb((byte)rSlider.Value, (byte)gSlider.Value, (byte)bSlider.Value));
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e) {
-            var item = new MyColor() { Color = Color.FromRgb((byte)rSlider.Value, (byte)gSlider.Value, (byte)bSlider.Value) };
-            stockList.Items.Add(item);
+        private void stockList_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            if (stockList.SelectedItem != null) {
+                var select = (MyColor)stockList.SelectedItem;
+                rValue.Text = select.Color.R.ToString();
+                gValue.Text = select.Color.G.ToString();
+                bValue.Text = select.Color.B.ToString();
+            }
         }
 
-        private void stockList_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            var select = (MyColor)stockList.SelectedItem;
-            rValue.Text = select.Color.R.ToString();
-            gValue.Text = select.Color.G.ToString();
-            bValue.Text = select.Color.B.ToString();
+        private void Stock_Button_Click(object sender, RoutedEventArgs e) {
+            if (mycolor.Name != null) {
+                stockList.Items.Add(mycolor.Name);
+            } else {
+                var item = new MyColor() { Color = Color.FromRgb((byte)rSlider.Value, (byte)gSlider.Value, (byte)bSlider.Value) };
+                stockList.Items.Add(item);
+            }
+            EnableCheck();
+        }
+
+        private void Delete_Button_Click(object sender, RoutedEventArgs e) {
+            stockList.Items.RemoveAt(stockList.SelectedIndex);
+            EnableCheck();
+        }
+
+        private void EnableCheck() {
+            if (stockList.Items.Count == 0) {
+                DeleteButton.IsEnabled = false;
+            } else {
+                DeleteButton.IsEnabled = true;
+            }
         }
     }
 }
