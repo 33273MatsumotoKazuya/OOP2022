@@ -44,7 +44,7 @@
             <TextBox x:Name="bValue" Grid.Row="2" Grid.Column="2" Margin="3,30,3,3"
                      Text="{Binding Value,ElementName=bSlider, UpdateSourceTrigger=PropertyChanged}"/>
 
-            <ComboBox Grid.Row="3" Grid.Column="1" ItemsSource="{Binding}" SelectedValue="{Binding Color}" Margin="3,30,3,3" Height="24" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="155" SelectionChanged="ComboBox_SelectionChanged">
+            <ComboBox x:Name="colorBox" Grid.Row="3" Grid.Column="1" ItemsSource="{Binding}" SelectedValue="{Binding Color}" Margin="3,30,3,3" Height="24" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="155" SelectionChanged="ComboBox_SelectionChanged">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -58,6 +58,9 @@
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
+            <Button Grid.Row="3" Grid.Column="2" Content="CLEAR" FontSize="12" Margin="3,30,3,3" Height="24" Click="Clear_Button_Click">
+                
+            </Button>
         </Grid>
         <Grid Grid.Row="0" Grid.Column="2">
             <Grid.RowDefinitions>

@@ -59,13 +59,15 @@ namespace CollarChecker {
         private void Border_Loaded(object sender, RoutedEventArgs e) { }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            mycolor = (MyColor)((ComboBox)sender).SelectedItem;
-            var color = mycolor.Color;
+            if ((MyColor)((ComboBox)sender).SelectedItem != null) {
+                mycolor = (MyColor)((ComboBox)sender).SelectedItem;
+                var color = mycolor.Color;
 
-            colorArea.Background = new SolidColorBrush(Color.FromArgb(color.A, color.R, color.G, color.B));
-            rValue.Text = color.R.ToString();
-            gValue.Text = color.G.ToString();
-            bValue.Text = color.B.ToString();
+                colorArea.Background = new SolidColorBrush(Color.FromArgb(color.A, color.R, color.G, color.B));
+                rValue.Text = color.R.ToString();
+                gValue.Text = color.G.ToString();
+                bValue.Text = color.B.ToString();
+            }
         }
 
         private void setColor() {
@@ -83,17 +85,21 @@ namespace CollarChecker {
         }
 
         private void Stock_Button_Click(object sender, RoutedEventArgs e) {
-            if (mycolor.Name != null) {
-                stockList.Items.Add(mycolor.Name);
+            if (mycolor != null) {
+                if (mycolor.Name != null) {
+                    stockList.Items.Add(mycolor.Name);
+                }
             } else {
-                var item = new MyColor() { Color = Color.FromRgb((byte)rSlider.Value, (byte)gSlider.Value, (byte)bSlider.Value) };
+                var item = new MyColor { Color = Color.FromRgb((byte)rSlider.Value, (byte)gSlider.Value, (byte)bSlider.Value) };
                 stockList.Items.Add(item);
             }
             EnableCheck();
         }
 
         private void Delete_Button_Click(object sender, RoutedEventArgs e) {
-            stockList.Items.RemoveAt(stockList.SelectedIndex);
+            if (stockList.SelectedIndex != -1) {
+                stockList.Items.RemoveAt(stockList.SelectedIndex);
+            }
             EnableCheck();
         }
 
@@ -103,6 +109,11 @@ namespace CollarChecker {
             } else {
                 DeleteButton.IsEnabled = true;
             }
+        }
+
+        private void Clear_Button_Click(object sender, RoutedEventArgs e) {
+            colorBox.SelectedIndex = -1;
+            mycolor = null;
         }
     }
 }
