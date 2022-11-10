@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CollarChecker {
+namespace ColorChecker {
     /// <summary>
     /// MainWindow.xaml の相互作用ロジック
     /// </summary>
@@ -78,20 +78,22 @@ namespace CollarChecker {
         }
 
         private void Stock_Button_Click(object sender, RoutedEventArgs e) {
-            MyColor stColor = new MyColor();
-            var r = byte.Parse(rValue.Text);
-            var g = byte.Parse(gValue.Text);
-            var b = byte.Parse(bValue.Text);
-            stColor.Color = Color.FromRgb(r, g, b);
+            var stColor = getColorName(byte.Parse(rValue.Text), byte.Parse(gValue.Text), byte.Parse(bValue.Text));
 
-            var colorName = ((IEnumerable<MyColor>)DataContext)
-                            .Where(c => c.Color.R == stColor.Color.R &&
-                                        c.Color.G == stColor.Color.G &&
-                                        c.Color.B == stColor.Color.B).FirstOrDefault();
-
-            stockList.Items.Insert(0, colorName?.Name ?? "R:" + r + " G:" + g + " B:" + b);
+            stockList.Items.Insert(0, stColor?.Name ?? "R:" + stColor.Color.R + " G:" + stColor.Color.G + " B:" + stColor.Color.B);
             colorList.Insert(0, stColor);
             EnableCheck();
+        }
+
+        private MyColor getColorName(byte r, byte g, byte b) {
+            return new MyColor {
+                Color = Color.FromRgb(r, g, b),
+                Name = ((IEnumerable<MyColor>)DataContext)
+                            .Where(c => c.Color.R == r &&
+                                        c.Color.G == g &&
+                                        c.Color.B == b)
+                            .Select(c => c.Name).FirstOrDefault(),
+            };
         }
 
         private void Delete_Button_Click(object sender, RoutedEventArgs e) {

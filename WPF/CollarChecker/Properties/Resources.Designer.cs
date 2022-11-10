@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace CollarChecker.Properties {
+namespace ColorChecker.Properties {
     /// <summary>
     ///   ローカライズされた文字列などを検索するための、厳密に型指定されたリソース クラスです。
     /// </summary>
