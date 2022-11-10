@@ -58,9 +58,7 @@
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
-            <Button Grid.Row="3" Grid.Column="2" Content="CLEAR" FontSize="12" Margin="3,30,3,3" Height="24" Click="Clear_Button_Click">
-                
-            </Button>
+
         </Grid>
         <Grid Grid.Row="0" Grid.Column="2">
             <Grid.RowDefinitions>

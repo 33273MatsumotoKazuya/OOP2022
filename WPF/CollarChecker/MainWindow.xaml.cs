@@ -34,9 +34,6 @@ namespace CollarChecker {
         public class MyColor {
             public Color Color { get; set; }
             public string Name { get; set; }
-            public override string ToString() {
-                return $"R:{Color.R} G:{Color.G} B:{Color.B}";
-            }
         }
 
         /// <summary>
@@ -60,15 +57,10 @@ namespace CollarChecker {
         private void Border_Loaded(object sender, RoutedEventArgs e) { }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            if ((MyColor)((ComboBox)sender).SelectedItem != null) {
-                mycolor = (MyColor)((ComboBox)sender).SelectedItem;
-                var color = mycolor.Color;
-
-                colorArea.Background = new SolidColorBrush(Color.FromArgb(color.A, color.R, color.G, color.B));
-                rValue.Text = color.R.ToString();
-                gValue.Text = color.G.ToString();
-                bValue.Text = color.B.ToString();
-            }
+            rSlider.Value = ((MyColor)((ComboBox)sender).SelectedItem).Color.R;
+            gSlider.Value = ((MyColor)((ComboBox)sender).SelectedItem).Color.G;
+            bSlider.Value = ((MyColor)((ComboBox)sender).SelectedItem).Color.B;
+            setColor();
         }
 
         private void setColor() {
@@ -77,32 +69,34 @@ namespace CollarChecker {
         }
 
         private void stockList_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            rSlider.Value = colorList[stockList.SelectedIndex].Color.R;
-            gSlider.Value = colorList[stockList.SelectedIndex].Color.G;
-            bSlider.Value = colorList[stockList.SelectedIndex].Color.B;
-            setColor();
+            if (stockList.SelectedIndex != -1) {
+                rSlider.Value = colorList[stockList.SelectedIndex].Color.R;
+                gSlider.Value = colorList[stockList.SelectedIndex].Color.G;
+                bSlider.Value = colorList[stockList.SelectedIndex].Color.B;
+                setColor();
+            }
         }
 
         private void Stock_Button_Click(object sender, RoutedEventArgs e) {
-            if (mycolor != null) {
-                if (mycolor.Name != null) {
-                    stockList.Items.Add(mycolor.Name);
-                }
-            } else {
-                var item = new MyColor { Color = Color.FromRgb((byte)rSlider.Value, (byte)gSlider.Value, (byte)bSlider.Value) };
-                stockList.Items.Add(item);
-            }
             MyColor stColor = new MyColor();
             var r = byte.Parse(rValue.Text);
             var g = byte.Parse(gValue.Text);
             var b = byte.Parse(bValue.Text);
             stColor.Color = Color.FromRgb(r, g, b);
-            colorList.Add(stColor);
+
+            var colorName = ((IEnumerable<MyColor>)DataContext)
+                            .Where(c => c.Color.R == stColor.Color.R &&
+                                        c.Color.G == stColor.Color.G &&
+                                        c.Color.B == stColor.Color.B).FirstOrDefault();
+
+            stockList.Items.Insert(0, colorName?.Name ?? "R:" + r + " G:" + g + " B:" + b);
+            colorList.Insert(0, stColor);
             EnableCheck();
         }
 
         private void Delete_Button_Click(object sender, RoutedEventArgs e) {
             if (stockList.SelectedIndex != -1) {
+                colorList.RemoveAt(stockList.SelectedIndex);
                 stockList.Items.RemoveAt(stockList.SelectedIndex);
             }
             EnableCheck();
@@ -114,11 +108,6 @@ namespace CollarChecker {
             } else {
                 DeleteButton.IsEnabled = true;
             }
-        }
-
-        private void Clear_Button_Click(object sender, RoutedEventArgs e) {
-            colorBox.SelectedIndex = -1;
-            mycolor = null;
         }
     }
 }
