@@ -20,7 +20,8 @@ namespace CollarChecker {
     /// </summary>
     public partial class MainWindow : Window {
 
-        MyColor mycolor;
+        private MyColor mycolor;
+        private List<MyColor> colorList = new List<MyColor>();
 
         public MainWindow() {
             InitializeComponent();
@@ -76,12 +77,10 @@ namespace CollarChecker {
         }
 
         private void stockList_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            if (stockList.SelectedItem != null) {
-                var select = (MyColor)stockList.SelectedItem;
-                rValue.Text = select.Color.R.ToString();
-                gValue.Text = select.Color.G.ToString();
-                bValue.Text = select.Color.B.ToString();
-            }
+            rSlider.Value = colorList[stockList.SelectedIndex].Color.R;
+            gSlider.Value = colorList[stockList.SelectedIndex].Color.G;
+            bSlider.Value = colorList[stockList.SelectedIndex].Color.B;
+            setColor();
         }
 
         private void Stock_Button_Click(object sender, RoutedEventArgs e) {
@@ -93,6 +92,12 @@ namespace CollarChecker {
                 var item = new MyColor { Color = Color.FromRgb((byte)rSlider.Value, (byte)gSlider.Value, (byte)bSlider.Value) };
                 stockList.Items.Add(item);
             }
+            MyColor stColor = new MyColor();
+            var r = byte.Parse(rValue.Text);
+            var g = byte.Parse(gValue.Text);
+            var b = byte.Parse(bValue.Text);
+            stColor.Color = Color.FromRgb(r, g, b);
+            colorList.Add(stColor);
             EnableCheck();
         }
 
