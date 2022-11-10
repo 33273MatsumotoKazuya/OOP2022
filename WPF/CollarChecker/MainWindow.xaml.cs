@@ -20,7 +20,6 @@ namespace ColorChecker {
     /// </summary>
     public partial class MainWindow : Window {
 
-        private MyColor mycolor;
         private List<MyColor> colorList = new List<MyColor>();
 
         public MainWindow() {
@@ -69,23 +68,22 @@ namespace ColorChecker {
         }
 
         private void stockList_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            if (stockList.SelectedIndex != -1) {
-                rSlider.Value = colorList[stockList.SelectedIndex].Color.R;
-                gSlider.Value = colorList[stockList.SelectedIndex].Color.G;
-                bSlider.Value = colorList[stockList.SelectedIndex].Color.B;
-                setColor();
-            }
+            if (stockList.SelectedIndex == -1) return;
+            rSlider.Value = colorList[stockList.SelectedIndex].Color.R;
+            gSlider.Value = colorList[stockList.SelectedIndex].Color.G;
+            bSlider.Value = colorList[stockList.SelectedIndex].Color.B;
+            setColor();
         }
 
         private void Stock_Button_Click(object sender, RoutedEventArgs e) {
-            var stColor = getColorName(byte.Parse(rValue.Text), byte.Parse(gValue.Text), byte.Parse(bValue.Text));
+            var stColor = getMyColor(byte.Parse(rValue.Text), byte.Parse(gValue.Text), byte.Parse(bValue.Text));
 
-            stockList.Items.Insert(0, stColor?.Name ?? "R:" + stColor.Color.R + " G:" + stColor.Color.G + " B:" + stColor.Color.B);
+            stockList.Items.Insert(0, stColor.Name ?? "R:" + stColor.Color.R + " G:" + stColor.Color.G + " B:" + stColor.Color.B);
             colorList.Insert(0, stColor);
             EnableCheck();
         }
 
-        private MyColor getColorName(byte r, byte g, byte b) {
+        private MyColor getMyColor(byte r, byte g, byte b) {
             return new MyColor {
                 Color = Color.FromRgb(r, g, b),
                 Name = ((IEnumerable<MyColor>)DataContext)
@@ -97,10 +95,9 @@ namespace ColorChecker {
         }
 
         private void Delete_Button_Click(object sender, RoutedEventArgs e) {
-            if (stockList.SelectedIndex != -1) {
-                colorList.RemoveAt(stockList.SelectedIndex);
-                stockList.Items.RemoveAt(stockList.SelectedIndex);
-            }
+            if (stockList.SelectedIndex == -1) return;
+            colorList.RemoveAt(stockList.SelectedIndex);
+            stockList.Items.RemoveAt(stockList.SelectedIndex);
             EnableCheck();
         }
 
