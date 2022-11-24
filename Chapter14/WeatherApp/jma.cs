@@ -82,36 +82,4 @@ namespace WeatherApp {
         public string name { get; set; }
         public string code { get; set; }
     }
-
-
-    public class Rootobject_Area {
-        public Near near { get; set; }
-        public Near_Monochrome near_monochrome { get; set; }
-        public Asia asia { get; set; }
-        public Asia_Monochrome asia_monochrome { get; set; }
-    }
-
-    public class Near {
-        public string[] now { get; set; }
-        public string[] ft24 { get; set; }
-        public string[] ft48 { get; set; }
-    }
-
-    public class Near_Monochrome {
-        public string[] now { get; set; }
-        public string[] ft24 { get; set; }
-        public string[] ft48 { get; set; }
-    }
-
-    public class Asia {
-        public string[] now { get; set; }
-        public string[] ft24 { get; set; }
-        public string[] ft48 { get; set; }
-    }
-
-    public class Asia_Monochrome {
-        public string[] now { get; set; }
-        public string[] ft24 { get; set; }
-        public string[] ft48 { get; set; }
-    }
 }

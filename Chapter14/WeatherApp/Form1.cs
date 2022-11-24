@@ -29,7 +29,6 @@ namespace WeatherApp {
                     dic.Add($"{values[0]}", $"{values[1]}");
                 }
             }
-
         }
 
         private void areaTreeView_AfterSelect(object sender, TreeViewEventArgs e) {
@@ -55,8 +54,12 @@ namespace WeatherApp {
             pbToday.ImageLocation = $"https://www.jma.go.jp/bosai/forecast/img/{weatherCodeToday}.png";
             pbTomorrow.ImageLocation = $"https://www.jma.go.jp/bosai/forecast/img/{weatherCodeTomorrow}.png";
             pbDayAfterTomorrow.ImageLocation = $"https://www.jma.go.jp/bosai/forecast/img/{weatherCodeDayAfterTomorrow}.png";
-            tbTempMin.Text = json_weather[1].tempAverage.areas[0].min;
-            tbTempMax.Text = json_weather[1].tempAverage.areas[0].max;
+            TempMin1.Text = json_weather[1].timeSeries[1].areas[0].tempsMin[0];
+            TempMax1.Text = json_weather[1].timeSeries[1].areas[0].tempsMax[0];
+            TempMin2.Text = json_weather[1].timeSeries[1].areas[0].tempsMin[1];
+            TempMax2.Text = json_weather[1].timeSeries[1].areas[0].tempsMax[1];
+            TempMin3.Text = json_weather[1].timeSeries[1].areas[0].tempsMin[2];
+            TempMax3.Text = json_weather[1].timeSeries[1].areas[0].tempsMax[2];
         }
     }
 }
