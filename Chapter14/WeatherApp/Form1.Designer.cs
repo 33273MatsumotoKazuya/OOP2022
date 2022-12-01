@@ -24,133 +24,133 @@ namespace WeatherApp {
         /// コード エディターで変更しないでください。
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.TreeNode treeNode70 = new System.Windows.Forms.TreeNode("宗谷地方");
-            System.Windows.Forms.TreeNode treeNode71 = new System.Windows.Forms.TreeNode("上川・留萌地方");
-            System.Windows.Forms.TreeNode treeNode72 = new System.Windows.Forms.TreeNode("網走・北見・紋別地方");
-            System.Windows.Forms.TreeNode treeNode73 = new System.Windows.Forms.TreeNode("十勝地方");
-            System.Windows.Forms.TreeNode treeNode74 = new System.Windows.Forms.TreeNode("釧路・根室地方");
-            System.Windows.Forms.TreeNode treeNode75 = new System.Windows.Forms.TreeNode("胆振・日高地方");
-            System.Windows.Forms.TreeNode treeNode76 = new System.Windows.Forms.TreeNode("石狩・空知・後志地方");
-            System.Windows.Forms.TreeNode treeNode77 = new System.Windows.Forms.TreeNode("渡島・檜山地方");
-            System.Windows.Forms.TreeNode treeNode78 = new System.Windows.Forms.TreeNode("北海道", new System.Windows.Forms.TreeNode[] {
-            treeNode70,
-            treeNode71,
-            treeNode72,
-            treeNode73,
-            treeNode74,
-            treeNode75,
-            treeNode76,
-            treeNode77});
-            System.Windows.Forms.TreeNode treeNode79 = new System.Windows.Forms.TreeNode("青森県");
-            System.Windows.Forms.TreeNode treeNode80 = new System.Windows.Forms.TreeNode("岩手県");
-            System.Windows.Forms.TreeNode treeNode81 = new System.Windows.Forms.TreeNode("宮城県");
-            System.Windows.Forms.TreeNode treeNode82 = new System.Windows.Forms.TreeNode("秋田県");
-            System.Windows.Forms.TreeNode treeNode83 = new System.Windows.Forms.TreeNode("山形県");
-            System.Windows.Forms.TreeNode treeNode84 = new System.Windows.Forms.TreeNode("福島県");
-            System.Windows.Forms.TreeNode treeNode85 = new System.Windows.Forms.TreeNode("東北", new System.Windows.Forms.TreeNode[] {
-            treeNode79,
-            treeNode80,
-            treeNode81,
-            treeNode82,
-            treeNode83,
-            treeNode84});
-            System.Windows.Forms.TreeNode treeNode86 = new System.Windows.Forms.TreeNode("茨城県");
-            System.Windows.Forms.TreeNode treeNode87 = new System.Windows.Forms.TreeNode("栃木県");
-            System.Windows.Forms.TreeNode treeNode88 = new System.Windows.Forms.TreeNode("群馬県");
-            System.Windows.Forms.TreeNode treeNode89 = new System.Windows.Forms.TreeNode("埼玉県");
-            System.Windows.Forms.TreeNode treeNode90 = new System.Windows.Forms.TreeNode("千葉県");
-            System.Windows.Forms.TreeNode treeNode91 = new System.Windows.Forms.TreeNode("東京都");
-            System.Windows.Forms.TreeNode treeNode92 = new System.Windows.Forms.TreeNode("神奈川県");
-            System.Windows.Forms.TreeNode treeNode93 = new System.Windows.Forms.TreeNode("山梨県");
-            System.Windows.Forms.TreeNode treeNode94 = new System.Windows.Forms.TreeNode("長野県");
-            System.Windows.Forms.TreeNode treeNode95 = new System.Windows.Forms.TreeNode("関東甲信", new System.Windows.Forms.TreeNode[] {
-            treeNode86,
-            treeNode87,
-            treeNode88,
-            treeNode89,
-            treeNode90,
-            treeNode91,
-            treeNode92,
-            treeNode93,
-            treeNode94});
-            System.Windows.Forms.TreeNode treeNode96 = new System.Windows.Forms.TreeNode("岐阜県");
-            System.Windows.Forms.TreeNode treeNode97 = new System.Windows.Forms.TreeNode("静岡県");
-            System.Windows.Forms.TreeNode treeNode98 = new System.Windows.Forms.TreeNode("愛知県");
-            System.Windows.Forms.TreeNode treeNode99 = new System.Windows.Forms.TreeNode("三重県");
-            System.Windows.Forms.TreeNode treeNode100 = new System.Windows.Forms.TreeNode("東海", new System.Windows.Forms.TreeNode[] {
-            treeNode96,
-            treeNode97,
-            treeNode98,
-            treeNode99});
-            System.Windows.Forms.TreeNode treeNode101 = new System.Windows.Forms.TreeNode("新潟県");
-            System.Windows.Forms.TreeNode treeNode102 = new System.Windows.Forms.TreeNode("新潟県");
-            System.Windows.Forms.TreeNode treeNode103 = new System.Windows.Forms.TreeNode("石川県");
-            System.Windows.Forms.TreeNode treeNode104 = new System.Windows.Forms.TreeNode("福井県");
-            System.Windows.Forms.TreeNode treeNode105 = new System.Windows.Forms.TreeNode("北陸", new System.Windows.Forms.TreeNode[] {
-            treeNode101,
-            treeNode102,
-            treeNode103,
-            treeNode104});
-            System.Windows.Forms.TreeNode treeNode106 = new System.Windows.Forms.TreeNode("滋賀県");
-            System.Windows.Forms.TreeNode treeNode107 = new System.Windows.Forms.TreeNode("京都府");
-            System.Windows.Forms.TreeNode treeNode108 = new System.Windows.Forms.TreeNode("大阪府");
-            System.Windows.Forms.TreeNode treeNode109 = new System.Windows.Forms.TreeNode("兵庫県");
-            System.Windows.Forms.TreeNode treeNode110 = new System.Windows.Forms.TreeNode("奈良県");
-            System.Windows.Forms.TreeNode treeNode111 = new System.Windows.Forms.TreeNode("和歌山県");
-            System.Windows.Forms.TreeNode treeNode112 = new System.Windows.Forms.TreeNode("近畿", new System.Windows.Forms.TreeNode[] {
-            treeNode106,
-            treeNode107,
-            treeNode108,
-            treeNode109,
-            treeNode110,
-            treeNode111});
-            System.Windows.Forms.TreeNode treeNode113 = new System.Windows.Forms.TreeNode("鳥取県");
-            System.Windows.Forms.TreeNode treeNode114 = new System.Windows.Forms.TreeNode("島根県");
-            System.Windows.Forms.TreeNode treeNode115 = new System.Windows.Forms.TreeNode("岡山県");
-            System.Windows.Forms.TreeNode treeNode116 = new System.Windows.Forms.TreeNode("広島県");
-            System.Windows.Forms.TreeNode treeNode117 = new System.Windows.Forms.TreeNode("中国", new System.Windows.Forms.TreeNode[] {
-            treeNode113,
-            treeNode114,
-            treeNode115,
-            treeNode116});
-            System.Windows.Forms.TreeNode treeNode118 = new System.Windows.Forms.TreeNode("徳島県");
-            System.Windows.Forms.TreeNode treeNode119 = new System.Windows.Forms.TreeNode("香川県");
-            System.Windows.Forms.TreeNode treeNode120 = new System.Windows.Forms.TreeNode("愛媛県");
-            System.Windows.Forms.TreeNode treeNode121 = new System.Windows.Forms.TreeNode("高知県");
-            System.Windows.Forms.TreeNode treeNode122 = new System.Windows.Forms.TreeNode("四国", new System.Windows.Forms.TreeNode[] {
-            treeNode118,
-            treeNode119,
-            treeNode120,
-            treeNode121});
-            System.Windows.Forms.TreeNode treeNode123 = new System.Windows.Forms.TreeNode("山口県");
-            System.Windows.Forms.TreeNode treeNode124 = new System.Windows.Forms.TreeNode("福島県");
-            System.Windows.Forms.TreeNode treeNode125 = new System.Windows.Forms.TreeNode("佐賀県");
-            System.Windows.Forms.TreeNode treeNode126 = new System.Windows.Forms.TreeNode("長崎県");
-            System.Windows.Forms.TreeNode treeNode127 = new System.Windows.Forms.TreeNode("熊本県");
-            System.Windows.Forms.TreeNode treeNode128 = new System.Windows.Forms.TreeNode("大分県");
-            System.Windows.Forms.TreeNode treeNode129 = new System.Windows.Forms.TreeNode("九州北部", new System.Windows.Forms.TreeNode[] {
-            treeNode123,
-            treeNode124,
-            treeNode125,
-            treeNode126,
-            treeNode127,
-            treeNode128});
-            System.Windows.Forms.TreeNode treeNode130 = new System.Windows.Forms.TreeNode("宮崎県");
-            System.Windows.Forms.TreeNode treeNode131 = new System.Windows.Forms.TreeNode("奄美地方");
-            System.Windows.Forms.TreeNode treeNode132 = new System.Windows.Forms.TreeNode("鹿児島県（奄美地方除く）");
-            System.Windows.Forms.TreeNode treeNode133 = new System.Windows.Forms.TreeNode("九州南部・奄美", new System.Windows.Forms.TreeNode[] {
-            treeNode130,
-            treeNode131,
-            treeNode132});
-            System.Windows.Forms.TreeNode treeNode134 = new System.Windows.Forms.TreeNode("沖縄本島地方");
-            System.Windows.Forms.TreeNode treeNode135 = new System.Windows.Forms.TreeNode("大東島地方");
-            System.Windows.Forms.TreeNode treeNode136 = new System.Windows.Forms.TreeNode("宮古島地方");
-            System.Windows.Forms.TreeNode treeNode137 = new System.Windows.Forms.TreeNode("八重山地方");
-            System.Windows.Forms.TreeNode treeNode138 = new System.Windows.Forms.TreeNode("沖縄", new System.Windows.Forms.TreeNode[] {
-            treeNode134,
-            treeNode135,
-            treeNode136,
-            treeNode137});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("宗谷地方");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("上川・留萌地方");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("網走・北見・紋別地方");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("十勝地方");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("釧路・根室地方");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("胆振・日高地方");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("石狩・空知・後志地方");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("渡島・檜山地方");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("北海道", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3,
+            treeNode4,
+            treeNode5,
+            treeNode6,
+            treeNode7,
+            treeNode8});
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("青森県");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("岩手県");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("宮城県");
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("秋田県");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("山形県");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("福島県");
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("東北", new System.Windows.Forms.TreeNode[] {
+            treeNode10,
+            treeNode11,
+            treeNode12,
+            treeNode13,
+            treeNode14,
+            treeNode15});
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("茨城県");
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("栃木県");
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("群馬県");
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("埼玉県");
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("千葉県");
+            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("東京都");
+            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("神奈川県");
+            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("山梨県");
+            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("長野県");
+            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("関東甲信", new System.Windows.Forms.TreeNode[] {
+            treeNode17,
+            treeNode18,
+            treeNode19,
+            treeNode20,
+            treeNode21,
+            treeNode22,
+            treeNode23,
+            treeNode24,
+            treeNode25});
+            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("岐阜県");
+            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("静岡県");
+            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("愛知県");
+            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("三重県");
+            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("東海", new System.Windows.Forms.TreeNode[] {
+            treeNode27,
+            treeNode28,
+            treeNode29,
+            treeNode30});
+            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("新潟県");
+            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("新潟県");
+            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("石川県");
+            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("福井県");
+            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("北陸", new System.Windows.Forms.TreeNode[] {
+            treeNode32,
+            treeNode33,
+            treeNode34,
+            treeNode35});
+            System.Windows.Forms.TreeNode treeNode37 = new System.Windows.Forms.TreeNode("滋賀県");
+            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("京都府");
+            System.Windows.Forms.TreeNode treeNode39 = new System.Windows.Forms.TreeNode("大阪府");
+            System.Windows.Forms.TreeNode treeNode40 = new System.Windows.Forms.TreeNode("兵庫県");
+            System.Windows.Forms.TreeNode treeNode41 = new System.Windows.Forms.TreeNode("奈良県");
+            System.Windows.Forms.TreeNode treeNode42 = new System.Windows.Forms.TreeNode("和歌山県");
+            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("近畿", new System.Windows.Forms.TreeNode[] {
+            treeNode37,
+            treeNode38,
+            treeNode39,
+            treeNode40,
+            treeNode41,
+            treeNode42});
+            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("鳥取県");
+            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("島根県");
+            System.Windows.Forms.TreeNode treeNode46 = new System.Windows.Forms.TreeNode("岡山県");
+            System.Windows.Forms.TreeNode treeNode47 = new System.Windows.Forms.TreeNode("広島県");
+            System.Windows.Forms.TreeNode treeNode48 = new System.Windows.Forms.TreeNode("中国", new System.Windows.Forms.TreeNode[] {
+            treeNode44,
+            treeNode45,
+            treeNode46,
+            treeNode47});
+            System.Windows.Forms.TreeNode treeNode49 = new System.Windows.Forms.TreeNode("徳島県");
+            System.Windows.Forms.TreeNode treeNode50 = new System.Windows.Forms.TreeNode("香川県");
+            System.Windows.Forms.TreeNode treeNode51 = new System.Windows.Forms.TreeNode("愛媛県");
+            System.Windows.Forms.TreeNode treeNode52 = new System.Windows.Forms.TreeNode("高知県");
+            System.Windows.Forms.TreeNode treeNode53 = new System.Windows.Forms.TreeNode("四国", new System.Windows.Forms.TreeNode[] {
+            treeNode49,
+            treeNode50,
+            treeNode51,
+            treeNode52});
+            System.Windows.Forms.TreeNode treeNode54 = new System.Windows.Forms.TreeNode("山口県");
+            System.Windows.Forms.TreeNode treeNode55 = new System.Windows.Forms.TreeNode("福島県");
+            System.Windows.Forms.TreeNode treeNode56 = new System.Windows.Forms.TreeNode("佐賀県");
+            System.Windows.Forms.TreeNode treeNode57 = new System.Windows.Forms.TreeNode("長崎県");
+            System.Windows.Forms.TreeNode treeNode58 = new System.Windows.Forms.TreeNode("熊本県");
+            System.Windows.Forms.TreeNode treeNode59 = new System.Windows.Forms.TreeNode("大分県");
+            System.Windows.Forms.TreeNode treeNode60 = new System.Windows.Forms.TreeNode("九州北部", new System.Windows.Forms.TreeNode[] {
+            treeNode54,
+            treeNode55,
+            treeNode56,
+            treeNode57,
+            treeNode58,
+            treeNode59});
+            System.Windows.Forms.TreeNode treeNode61 = new System.Windows.Forms.TreeNode("宮崎県");
+            System.Windows.Forms.TreeNode treeNode62 = new System.Windows.Forms.TreeNode("奄美地方");
+            System.Windows.Forms.TreeNode treeNode63 = new System.Windows.Forms.TreeNode("鹿児島県（奄美地方除く）");
+            System.Windows.Forms.TreeNode treeNode64 = new System.Windows.Forms.TreeNode("九州南部・奄美", new System.Windows.Forms.TreeNode[] {
+            treeNode61,
+            treeNode62,
+            treeNode63});
+            System.Windows.Forms.TreeNode treeNode65 = new System.Windows.Forms.TreeNode("沖縄本島地方");
+            System.Windows.Forms.TreeNode treeNode66 = new System.Windows.Forms.TreeNode("大東島地方");
+            System.Windows.Forms.TreeNode treeNode67 = new System.Windows.Forms.TreeNode("宮古島地方");
+            System.Windows.Forms.TreeNode treeNode68 = new System.Windows.Forms.TreeNode("八重山地方");
+            System.Windows.Forms.TreeNode treeNode69 = new System.Windows.Forms.TreeNode("沖縄", new System.Windows.Forms.TreeNode[] {
+            treeNode65,
+            treeNode66,
+            treeNode67,
+            treeNode68});
             this.label1 = new System.Windows.Forms.Label();
             this.areaTreeView = new System.Windows.Forms.TreeView();
             this.label4 = new System.Windows.Forms.Label();
@@ -202,156 +202,156 @@ namespace WeatherApp {
             this.areaTreeView.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.areaTreeView.Location = new System.Drawing.Point(12, 12);
             this.areaTreeView.Name = "areaTreeView";
-            treeNode70.Name = "h1";
-            treeNode70.Text = "宗谷地方";
-            treeNode71.Name = "h2";
-            treeNode71.Text = "上川・留萌地方";
-            treeNode72.Name = "h3";
-            treeNode72.Text = "網走・北見・紋別地方";
-            treeNode73.Name = "h4";
-            treeNode73.Text = "十勝地方";
-            treeNode74.Name = "h5";
-            treeNode74.Text = "釧路・根室地方";
-            treeNode75.Name = "h6";
-            treeNode75.Text = "胆振・日高地方";
-            treeNode76.Name = "h7";
-            treeNode76.Text = "石狩・空知・後志地方";
-            treeNode77.Name = "h8";
-            treeNode77.Text = "渡島・檜山地方";
-            treeNode78.Name = "Hokkaido";
-            treeNode78.Text = "北海道";
-            treeNode79.Name = "t1";
-            treeNode79.Text = "青森県";
-            treeNode80.Name = "t2";
-            treeNode80.Text = "岩手県";
-            treeNode81.Name = "t3";
-            treeNode81.Text = "宮城県";
-            treeNode82.Name = "t4";
-            treeNode82.Text = "秋田県";
-            treeNode83.Name = "t5";
-            treeNode83.Text = "山形県";
-            treeNode84.Name = "t6";
-            treeNode84.Text = "福島県";
-            treeNode85.Name = "Tohoku";
-            treeNode85.Text = "東北";
-            treeNode86.Name = "kt1";
-            treeNode86.Text = "茨城県";
-            treeNode87.Name = "kt2";
-            treeNode87.Text = "栃木県";
-            treeNode88.Name = "kt3";
-            treeNode88.Text = "群馬県";
-            treeNode89.Name = "kt4";
-            treeNode89.Text = "埼玉県";
-            treeNode90.Name = "kt5";
-            treeNode90.Text = "千葉県";
-            treeNode91.Name = "kt6";
-            treeNode91.Text = "東京都";
-            treeNode92.Name = "kt7";
-            treeNode92.Text = "神奈川県";
-            treeNode93.Name = "kt8";
-            treeNode93.Text = "山梨県";
-            treeNode94.Name = "kt9";
-            treeNode94.Text = "長野県";
-            treeNode95.Name = "Kanto";
-            treeNode95.Text = "関東甲信";
-            treeNode96.Name = "t1";
-            treeNode96.Text = "岐阜県";
-            treeNode97.Name = "t2";
-            treeNode97.Text = "静岡県";
-            treeNode98.Name = "t3";
-            treeNode98.Text = "愛知県";
-            treeNode99.Name = "t4";
-            treeNode99.Text = "三重県";
-            treeNode100.Name = "Tokai";
-            treeNode100.Text = "東海";
-            treeNode101.Name = "h1";
-            treeNode101.Text = "新潟県";
-            treeNode102.Name = "h2";
-            treeNode102.Text = "新潟県";
-            treeNode103.Name = "h3";
-            treeNode103.Text = "石川県";
-            treeNode104.Name = "h4";
-            treeNode104.Text = "福井県";
-            treeNode105.Name = "Hokuriku";
-            treeNode105.Text = "北陸";
-            treeNode106.Name = "kk1";
-            treeNode106.Text = "滋賀県";
-            treeNode107.Name = "kk2";
-            treeNode107.Text = "京都府";
-            treeNode108.Name = "kk3";
-            treeNode108.Text = "大阪府";
-            treeNode109.Name = "kk4";
-            treeNode109.Text = "兵庫県";
-            treeNode110.Name = "kk5";
-            treeNode110.Text = "奈良県";
-            treeNode111.Name = "kk6";
-            treeNode111.Text = "和歌山県";
-            treeNode112.Name = "Kinki";
-            treeNode112.Text = "近畿";
-            treeNode113.Name = "c1";
-            treeNode113.Text = "鳥取県";
-            treeNode114.Name = "c2";
-            treeNode114.Text = "島根県";
-            treeNode115.Name = "c3";
-            treeNode115.Text = "岡山県";
-            treeNode116.Name = "c4";
-            treeNode116.Text = "広島県";
-            treeNode117.Name = "Chugoku";
-            treeNode117.Text = "中国";
-            treeNode118.Name = "s1";
-            treeNode118.Text = "徳島県";
-            treeNode119.Name = "s2";
-            treeNode119.Text = "香川県";
-            treeNode120.Name = "s3";
-            treeNode120.Text = "愛媛県";
-            treeNode121.Name = "s4";
-            treeNode121.Text = "高知県";
-            treeNode122.Name = "Shikoku";
-            treeNode122.Text = "四国";
-            treeNode123.Name = "nk1";
-            treeNode123.Text = "山口県";
-            treeNode124.Name = "nk2";
-            treeNode124.Text = "福島県";
-            treeNode125.Name = "nk3";
-            treeNode125.Text = "佐賀県";
-            treeNode126.Name = "nk4";
-            treeNode126.Text = "長崎県";
-            treeNode127.Name = "nk5";
-            treeNode127.Text = "熊本県";
-            treeNode128.Name = "nk6";
-            treeNode128.Text = "大分県";
-            treeNode129.Name = "KyushuNorth";
-            treeNode129.Text = "九州北部";
-            treeNode130.Name = "sk1";
-            treeNode130.Text = "宮崎県";
-            treeNode131.Name = "sk2";
-            treeNode131.Text = "奄美地方";
-            treeNode132.Name = "sk3";
-            treeNode132.Text = "鹿児島県（奄美地方除く）";
-            treeNode133.Name = "KyushuSouth";
-            treeNode133.Text = "九州南部・奄美";
-            treeNode134.Name = "o1";
-            treeNode134.Text = "沖縄本島地方";
-            treeNode135.Name = "o2";
-            treeNode135.Text = "大東島地方";
-            treeNode136.Name = "o3";
-            treeNode136.Text = "宮古島地方";
-            treeNode137.Name = "o4";
-            treeNode137.Text = "八重山地方";
-            treeNode138.Name = "Okinawa";
-            treeNode138.Text = "沖縄";
+            treeNode1.Name = "h1";
+            treeNode1.Text = "宗谷地方";
+            treeNode2.Name = "h2";
+            treeNode2.Text = "上川・留萌地方";
+            treeNode3.Name = "h3";
+            treeNode3.Text = "網走・北見・紋別地方";
+            treeNode4.Name = "h4";
+            treeNode4.Text = "十勝地方";
+            treeNode5.Name = "h5";
+            treeNode5.Text = "釧路・根室地方";
+            treeNode6.Name = "h6";
+            treeNode6.Text = "胆振・日高地方";
+            treeNode7.Name = "h7";
+            treeNode7.Text = "石狩・空知・後志地方";
+            treeNode8.Name = "h8";
+            treeNode8.Text = "渡島・檜山地方";
+            treeNode9.Name = "Hokkaido";
+            treeNode9.Text = "北海道";
+            treeNode10.Name = "t1";
+            treeNode10.Text = "青森県";
+            treeNode11.Name = "t2";
+            treeNode11.Text = "岩手県";
+            treeNode12.Name = "t3";
+            treeNode12.Text = "宮城県";
+            treeNode13.Name = "t4";
+            treeNode13.Text = "秋田県";
+            treeNode14.Name = "t5";
+            treeNode14.Text = "山形県";
+            treeNode15.Name = "t6";
+            treeNode15.Text = "福島県";
+            treeNode16.Name = "Tohoku";
+            treeNode16.Text = "東北";
+            treeNode17.Name = "kt1";
+            treeNode17.Text = "茨城県";
+            treeNode18.Name = "kt2";
+            treeNode18.Text = "栃木県";
+            treeNode19.Name = "kt3";
+            treeNode19.Text = "群馬県";
+            treeNode20.Name = "kt4";
+            treeNode20.Text = "埼玉県";
+            treeNode21.Name = "kt5";
+            treeNode21.Text = "千葉県";
+            treeNode22.Name = "kt6";
+            treeNode22.Text = "東京都";
+            treeNode23.Name = "kt7";
+            treeNode23.Text = "神奈川県";
+            treeNode24.Name = "kt8";
+            treeNode24.Text = "山梨県";
+            treeNode25.Name = "kt9";
+            treeNode25.Text = "長野県";
+            treeNode26.Name = "Kanto";
+            treeNode26.Text = "関東甲信";
+            treeNode27.Name = "t1";
+            treeNode27.Text = "岐阜県";
+            treeNode28.Name = "t2";
+            treeNode28.Text = "静岡県";
+            treeNode29.Name = "t3";
+            treeNode29.Text = "愛知県";
+            treeNode30.Name = "t4";
+            treeNode30.Text = "三重県";
+            treeNode31.Name = "Tokai";
+            treeNode31.Text = "東海";
+            treeNode32.Name = "h1";
+            treeNode32.Text = "新潟県";
+            treeNode33.Name = "h2";
+            treeNode33.Text = "新潟県";
+            treeNode34.Name = "h3";
+            treeNode34.Text = "石川県";
+            treeNode35.Name = "h4";
+            treeNode35.Text = "福井県";
+            treeNode36.Name = "Hokuriku";
+            treeNode36.Text = "北陸";
+            treeNode37.Name = "kk1";
+            treeNode37.Text = "滋賀県";
+            treeNode38.Name = "kk2";
+            treeNode38.Text = "京都府";
+            treeNode39.Name = "kk3";
+            treeNode39.Text = "大阪府";
+            treeNode40.Name = "kk4";
+            treeNode40.Text = "兵庫県";
+            treeNode41.Name = "kk5";
+            treeNode41.Text = "奈良県";
+            treeNode42.Name = "kk6";
+            treeNode42.Text = "和歌山県";
+            treeNode43.Name = "Kinki";
+            treeNode43.Text = "近畿";
+            treeNode44.Name = "c1";
+            treeNode44.Text = "鳥取県";
+            treeNode45.Name = "c2";
+            treeNode45.Text = "島根県";
+            treeNode46.Name = "c3";
+            treeNode46.Text = "岡山県";
+            treeNode47.Name = "c4";
+            treeNode47.Text = "広島県";
+            treeNode48.Name = "Chugoku";
+            treeNode48.Text = "中国";
+            treeNode49.Name = "s1";
+            treeNode49.Text = "徳島県";
+            treeNode50.Name = "s2";
+            treeNode50.Text = "香川県";
+            treeNode51.Name = "s3";
+            treeNode51.Text = "愛媛県";
+            treeNode52.Name = "s4";
+            treeNode52.Text = "高知県";
+            treeNode53.Name = "Shikoku";
+            treeNode53.Text = "四国";
+            treeNode54.Name = "nk1";
+            treeNode54.Text = "山口県";
+            treeNode55.Name = "nk2";
+            treeNode55.Text = "福島県";
+            treeNode56.Name = "nk3";
+            treeNode56.Text = "佐賀県";
+            treeNode57.Name = "nk4";
+            treeNode57.Text = "長崎県";
+            treeNode58.Name = "nk5";
+            treeNode58.Text = "熊本県";
+            treeNode59.Name = "nk6";
+            treeNode59.Text = "大分県";
+            treeNode60.Name = "KyushuNorth";
+            treeNode60.Text = "九州北部";
+            treeNode61.Name = "sk1";
+            treeNode61.Text = "宮崎県";
+            treeNode62.Name = "sk2";
+            treeNode62.Text = "奄美地方";
+            treeNode63.Name = "sk3";
+            treeNode63.Text = "鹿児島県（奄美地方除く）";
+            treeNode64.Name = "KyushuSouth";
+            treeNode64.Text = "九州南部・奄美";
+            treeNode65.Name = "o1";
+            treeNode65.Text = "沖縄本島地方";
+            treeNode66.Name = "o2";
+            treeNode66.Text = "大東島地方";
+            treeNode67.Name = "o3";
+            treeNode67.Text = "宮古島地方";
+            treeNode68.Name = "o4";
+            treeNode68.Text = "八重山地方";
+            treeNode69.Name = "Okinawa";
+            treeNode69.Text = "沖縄";
             this.areaTreeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode78,
-            treeNode85,
-            treeNode95,
-            treeNode100,
-            treeNode105,
-            treeNode112,
-            treeNode117,
-            treeNode122,
-            treeNode129,
-            treeNode133,
-            treeNode138});
+            treeNode9,
+            treeNode16,
+            treeNode26,
+            treeNode31,
+            treeNode36,
+            treeNode43,
+            treeNode48,
+            treeNode53,
+            treeNode60,
+            treeNode64,
+            treeNode69});
             this.areaTreeView.Size = new System.Drawing.Size(236, 468);
             this.areaTreeView.TabIndex = 6;
             this.areaTreeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.areaTreeView_AfterSelect);
@@ -444,6 +444,7 @@ namespace WeatherApp {
             // pbTomorrow
             // 
             this.pbTomorrow.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pbTomorrow.ErrorImage = null;
             this.pbTomorrow.Location = new System.Drawing.Point(681, 265);
             this.pbTomorrow.Name = "pbTomorrow";
             this.pbTomorrow.Size = new System.Drawing.Size(100, 50);
@@ -454,6 +455,7 @@ namespace WeatherApp {
             // pbToday
             // 
             this.pbToday.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pbToday.ErrorImage = null;
             this.pbToday.Location = new System.Drawing.Point(681, 151);
             this.pbToday.Name = "pbToday";
             this.pbToday.Size = new System.Drawing.Size(100, 50);
@@ -464,6 +466,7 @@ namespace WeatherApp {
             // pbDayAfterTomorrow
             // 
             this.pbDayAfterTomorrow.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pbDayAfterTomorrow.ErrorImage = null;
             this.pbDayAfterTomorrow.Location = new System.Drawing.Point(681, 376);
             this.pbDayAfterTomorrow.Name = "pbDayAfterTomorrow";
             this.pbDayAfterTomorrow.Size = new System.Drawing.Size(100, 50);
